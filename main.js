@@ -19,5 +19,12 @@ function items (id, name, price, qty, maxPerCustomer, category, shippingPrice, r
 }
 
 // cart item constructor 
-function cartItems (id, price, qty, shippingPrice);
+function cartItems (id, price, qty, shippingPrice){
+    this.id = id,
+    this.price = price,
+    this.qty = qty,
+    this.shippingPrice = shippingPrice
+};
+
+
 
