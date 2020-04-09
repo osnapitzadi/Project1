@@ -66,7 +66,7 @@ function displayStoreItems() {
     for (let index = 0; index < aStore.length; index++) {
         const tempItem = aStore[index];
         var tempCard = document.createElement("div");
-        tempCard.className = "card";
+        tempCard.className = "card col-4";
         tempCard.style = "width: 18rem;";
         var cardImg = document.createElement("IMG");
         cardImg.className = "card-img-top";
