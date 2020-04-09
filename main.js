@@ -76,6 +76,7 @@ function displayStoreItems() {
         cardImg.className = "card-img-top";
         cardImg.setAttribute('src', tempItem.image);
 
+        // body div
         var cardBody = document.createElement("div");
         cardBody.className = "card-body";
 
