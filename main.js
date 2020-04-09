@@ -44,6 +44,7 @@ aStore.push(new items (13, "White Socks", 19.99, 100, 20, "Socks", 4.99, [], "",
 aStore.push(new items (14, "Black Socks", 19.99, 100, 20, "Socks", 4.99, [], "", immage));
 aStore.push(new items (15, "Amazon Socks", 9.99, 100, 20, "Socks", 4.99, [], "", immage));
 console.log(aStore);
+
 // current time function
 function time(){
     var n = new Date().toLocaleString();
@@ -54,4 +55,5 @@ function time(){
 function init() {
     time();
 }
+
 
