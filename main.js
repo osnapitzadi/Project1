@@ -28,21 +28,23 @@ function cartItems (id, price, qty, shippingPrice){
 
 var immage = false;
 // Constructor Calls
-aStore.push(new items (1, "Nike Pro", 119.99, 1, 1, "Shoos", 4,99, [], "", immage));
-aStore.push(new items (2, "Adidas Original", 199.99, 10, 5, "Shoos", 4,99, [], "", immage));
-aStore.push(new items (3, "New Balance", 159.99, 20, 5, "Shoos", 4.99, [], "", immage));
-aStore.push(new items (4, "Polo T-Shirt", 19.99, 25, 5, "T-Shirt", 4.99, [], "", immage));
-aStore.push(new items (5, "Nike T-Shirt", 21.99, 25, 5, "T-Shirt", 4.99, [], "", immage));
-aStore.push(new items (6, "Amazon T-Shirt", 9.99, 25, 5, "T-Shirt", 4.99, [], "", immage));
-aStore.push(new items (7, "Levi's Jeans", 59.99, 25, 5, "Jeans", 4.99, [], "", immage));
-aStore.push(new items (8, "Jack & Jones Jeans", 99.99, 25, 5, "Jeans", 4.99, [], "", immage));
-aStore.push(new items (9, "Amazon Jeans", 12.99, 25, 5, "Jeans", 4.99, [], "", immage));
-aStore.push(new items (10, "Champion's Hoodie", 34.99, 100, 10, "Hoodie", 4.99, [], "", immage));
-aStore.push(new items (11, "Naruto Hoodie", 69.99, 100, 10, "Hoodie", 4.99, [], "", immage));
-aStore.push(new items (12, "Supreme Hoodie", 15.99, 100, 10, "Hoodie", 4.99, [], "", immage));
-aStore.push(new items (13, "White Socks", 19.99, 100, 20, "Socks", 4.99, [], "", immage));
-aStore.push(new items (14, "Black Socks", 19.99, 100, 20, "Socks", 4.99, [], "", immage));
-aStore.push(new items (15, "Amazon Socks", 9.99, 100, 20, "Socks", 4.99, [], "", immage));
+
+aStore.push(new items (1, "Nike Pro", 119.99, 1, 1, "Shoos", 4,99, [], "lorem ipsum description", "src/1.png"));
+aStore.push(new items (2, "Adidas Origin", 199.99, 10, 5, "Shoos", 4,99, [], "lorem ipsum description", "src/2.png"));
+aStore.push(new items (3, "New Balance", 159.99, 20, 5, "Shoos", 4.99, [], "lorem ipsum description", "src/3.png"));
+aStore.push(new items (4, "Polo T-Shirt", 19.99, 25, 5, "T-Shirt", 4.99, [], "lorem ipsum description", "src/4.png"));
+aStore.push(new items (5, "T-Shirt", 21.99, 25, 5, "T-Shirt", 4.99, [], "lorem ipsum description", "src/5.png"));
+aStore.push(new items (6, "Amazon T-Shirt", 9.99, 25, 5, "T-Shirt", 4.99, [], "lorem ipsum description", "src/6.png"));
+aStore.push(new items (7, "Levi's Jeans", 59.99, 25, 5, "Jeans", 4.99, [], "lorem ipsum description", "src/7.png"));
+aStore.push(new items (8, "Jack & Jones Jeans", 99.99, 25, 5, "Jeans", 4.99, [], "lorem ipsum description", "src/8.png"));
+aStore.push(new items (9, "Amazon Jeans", 12.99, 25, 5, "Jeans", 4.99, [], "lorem ipsum description", "src/9.png"));
+aStore.push(new items (10, "Champion's Hoodie", 34.99, 100, 10, "Hoodie", 4.99, [], "lorem ipsum description", "src/10.png"));
+aStore.push(new items (11, "Naruto Hoodie", 69.99, 100, 10, "Hoodie", 4.99, [], "lorem ipsum description", "src/11.png"));
+aStore.push(new items (12, "Just White Hoodie", 15.99, 100, 10, "Hoodie", 4.99, [], "lorem ipsum description", "src/11.png"));
+aStore.push(new items (13, "White Socks", 19.99, 100, 20, "Socks", 4.99, [], "lorem ipsum description", "src/12.png"));
+aStore.push(new items (14, "Black Socks", 19.99, 100, 20, "Socks", 4.99, [], "lorem ipsum description", "src/13.png"));
+aStore.push(new items (15, "Amazon Socks", 9.99, 100, 20, "Socks", 4.99, [], "lorem ipsum description", "src/14.png"));
+
 console.log(aStore);
 
 // current time function
@@ -54,24 +56,52 @@ function time(){
 
 function init() {
     time();
+    displayStoreItems();
 }
 
+function displayStoreItems() {
+    var divOutput = document.getElementById("storeItems");
+    divOutput.innerHTML = "";
+    
+    for (let index = 0; index < aStore.length; index++) {
+        const tempItem = aStore[index];
+        var tempCard = document.createElement("div");
+        tempCard.className = "card";
+        tempCard.style = "width: 18rem;";
+        // var cardBody = document.createElemen("IMG");
+        var cardBody = document.createElement("div");
+        cardBody.className = "card-body";
+        var cardTitle = document.createElement("h5")
+        cardTitle.className = "card-title";
+        cardTitle.innerText = tempItem.name;
+        var cardText = document.createElement("p");
+        cardText.className = "card-text";
+        cardText.innerText = tempItem.description;
+        var listPS = document.createElement("ul");
+        listPS.className = "list-group " + "list-group-flush";
+        var price = document.createElement("li");
+        price.className = "list-group-item";
+        price.innerText = "Price: $" + tempItem.price;
+        var stoke = document.createElement("li");
+        stoke.className = "list-group-item";
+        stoke.innerText = "On Stoke: " + tempItem.qty;
+        var cardBody2 = document.createElement("div");
+        cardBody2.className = "card-body";
+        var addToCard = document.createElement("a");
+        addToCard.className = "card-link";
+        addToCard.innerText = "Add to card"
 
-function modeChange(){
-    if(document.getElementById("customSwitch1").checked == true){
-    document.getElementById("storeName").style.color="#FFF";
-    document.body.style.background = "#363636";
-    document.getElementById("mainNavbar").className = "navbar navbar-expand-lg navbar-dark bg-dark";
-    document.getElementById("time").style.color = "#FFF";
-    document.getElementById("modeLabel").style.color = "#FFF";
-    document.getElementById("modeLabel").innerHTML = "Light mode";
-    } else {
-        document.getElementById("storeName").style.color="black";
-        document.body.style.background = "#FFF";
-        document.getElementById("mainNavbar").className = "navbar navbar-expand-lg navbar-light bg-light";
-        document.getElementById("time").style.color = "#000";
-        document.getElementById("modeLabel").style.color = "#000";
-        document.getElementById("modeLabel").innerHTML = "Dark mode";
+        divOutput.appendChild(tempCard);
+        tempCard.appendChild(cardBody);
+        cardBody.appendChild(cardTitle);
+        cardBody.appendChild(cardText);
+        cardBody.appendChild(listPS);
+        listPS.appendChild(price);
+        listPS.appendChild(stoke);
+        cardBody2.appendChild(addToCard);
+        tempCard.appendChild(cardBody2);
+
+        
     }
 }
 
