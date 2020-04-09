@@ -29,8 +29,8 @@ function cartItems (id, price, qty, shippingPrice){
 var immage = false;
 // Constructor Calls
 
-aStore.push(new items (1, "Nike Pro", 119.99, 1, 1, "Shoos", 4,99, [], "lorem ipsum description", "src/1.png"));
-aStore.push(new items (2, "Adidas Origin", 199.99, 10, 5, "Shoos", 4,99, [], "lorem ipsum description", "src/2.jpg"));
+aStore.push(new items (1, "Nike Pro", 119.99, 1, 1, "Shoos", 4.99, [],"dsfegrdjh", "src/1.png"));
+aStore.push(new items (2, "Adidas Origin", 199.99, 10, 5, "Shoos", 4.99, [],"qsdfgdf", "src/2.jpg"));
 aStore.push(new items (3, "New Balance", 159.99, 20, 5, "Shoos", 4.99, [], "lorem ipsum description", "src/3.jpg"));
 aStore.push(new items (4, "Polo T-Shirt", 19.99, 25, 5, "T-Shirt", 4.99, [], "lorem ipsum description", "src/4.png"));
 aStore.push(new items (5, "T-Shirt", 21.99, 25, 5, "T-Shirt", 4.99, [], "lorem ipsum description", "src/5.jpg"));
@@ -71,7 +71,6 @@ function displayStoreItems() {
         var cardImg = document.createElement("IMG");
         cardImg.className = "card-img-top";
         cardImg.setAttribute('src', tempItem.image);
-        console.log(tempItem.image);
         var cardBody = document.createElement("div");
         cardBody.className = "card-body";
         var cardTitle = document.createElement("h5")
