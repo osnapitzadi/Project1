@@ -28,6 +28,7 @@ function cartItems (id, price, qty, shippingPrice){
 
 var immage = false;
 // Constructor Calls
+
 aStore.push(new items (1, "Nike Pro", 119.99, 1, 1, "Shoos", 4,99, [], "lorem ipsum description", "src/1.png"));
 aStore.push(new items (2, "Adidas Origin", 199.99, 10, 5, "Shoos", 4,99, [], "lorem ipsum description", "src/2.png"));
 aStore.push(new items (3, "New Balance", 159.99, 20, 5, "Shoos", 4.99, [], "lorem ipsum description", "src/3.png"));
@@ -43,6 +44,7 @@ aStore.push(new items (12, "Just White Hoodie", 15.99, 100, 10, "Hoodie", 4.99, 
 aStore.push(new items (13, "White Socks", 19.99, 100, 20, "Socks", 4.99, [], "lorem ipsum description", "src/12.png"));
 aStore.push(new items (14, "Black Socks", 19.99, 100, 20, "Socks", 4.99, [], "lorem ipsum description", "src/13.png"));
 aStore.push(new items (15, "Amazon Socks", 9.99, 100, 20, "Socks", 4.99, [], "lorem ipsum description", "src/14.png"));
+
 console.log(aStore);
 
 // current time function
