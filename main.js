@@ -101,8 +101,8 @@ function displayStoreItems() {
         var cardBody2 = document.createElement("div");
         cardBody2.className = "card-body";
 
-        var addToCard = document.createElement("a");
-        addToCard.className = "card-link";
+        var addToCard = document.createElement("button");
+        addToCard.className = "card-btn btn-primary";
         addToCard.innerText = "Add to card"
 
         //child parent stucture
@@ -111,7 +111,7 @@ function displayStoreItems() {
         tempCard.appendChild(cardBody);
         cardBody.appendChild(cardTitle);
         cardBody.appendChild(cardText);
-        cardBody.appendChild(listPS);
+        tempCard.appendChild(listPS);
         listPS.appendChild(price);
         listPS.appendChild(stoke);
         cardBody2.appendChild(addToCard);
