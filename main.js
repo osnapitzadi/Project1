@@ -57,3 +57,21 @@ function init() {
 }
 
 
+function modeChange(){
+    if(document.getElementById("customSwitch1").checked == true){
+    document.getElementById("storeName").style.color="#FFF";
+    document.body.style.background = "#363636";
+    document.getElementById("mainNavbar").className = "navbar navbar-expand-lg navbar-dark bg-dark";
+    document.getElementById("time").style.color = "#FFF";
+    document.getElementById("modeLabel").style.color = "#FFF";
+    document.getElementById("modeLabel").innerHTML = "Light mode";
+    } else {
+        document.getElementById("storeName").style.color="black";
+        document.body.style.background = "#FFF";
+        document.getElementById("mainNavbar").className = "navbar navbar-expand-lg navbar-light bg-light";
+        document.getElementById("time").style.color = "#000";
+        document.getElementById("modeLabel").style.color = "#000";
+        document.getElementById("modeLabel").innerHTML = "Dark mode";
+    }
+}
+
