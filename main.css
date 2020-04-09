@@ -1,3 +1,13 @@
 .container{
     margin-top: 15px;
 }
+
+#storeName{
+    font-family: 'Baloo Thambi 2', cursive;
+    margin-left: 20px;
+}
+
+#modeLabel{
+    margin-right: 32px;
+}
+

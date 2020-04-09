@@ -137,3 +137,16 @@ function modeChange(){
         document.getElementById("modeLabel").innerHTML = "Dark mode";
     }
 }
+
+
+var words = ['Buy with us!', 'Buy a lot!', 'Buy with friends!', 'Buy now!'];
+var currentWord = -1;
+
+setInterval(function(){
+    currentWord++;
+    if(currentWord >= words.length)
+    {
+        currentWord = 0;
+    }
+    document.getElementById("storeName").innerHTML = words[currentWord];
+}, 3000);
