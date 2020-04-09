@@ -65,34 +65,46 @@ function displayStoreItems() {
     
     for (let index = 0; index < aStore.length; index++) {
         const tempItem = aStore[index];
+
+        //main div
         var tempCard = document.createElement("div");
-        tempCard.className = "card col-4";
+        tempCard.className = "card col-3"; // the reason why I give class name is bootstrap library;
         tempCard.style = "width: 18rem;";
+
+        // card 
         var cardImg = document.createElement("IMG");
         cardImg.className = "card-img-top";
         cardImg.setAttribute('src', tempItem.image);
+
         var cardBody = document.createElement("div");
         cardBody.className = "card-body";
-        var cardTitle = document.createElement("h5")
+
+        var cardTitle = document.createElement("h5");
         cardTitle.className = "card-title";
         cardTitle.innerText = tempItem.name;
+
         var cardText = document.createElement("p");
         cardText.className = "card-text";
         cardText.innerText = tempItem.description;
         var listPS = document.createElement("ul");
+
         listPS.className = "list-group " + "list-group-flush";
         var price = document.createElement("li");
+
         price.className = "list-group-item";
         price.innerText = "Price: $" + tempItem.price;
         var stoke = document.createElement("li");
+
         stoke.className = "list-group-item";
         stoke.innerText = "On Stoke: " + tempItem.qty;
         var cardBody2 = document.createElement("div");
         cardBody2.className = "card-body";
+
         var addToCard = document.createElement("a");
         addToCard.className = "card-link";
         addToCard.innerText = "Add to card"
 
+        //child parent stucture
         divOutput.appendChild(tempCard);
         tempCard.appendChild(cardImg);
         tempCard.appendChild(cardBody);
@@ -103,8 +115,6 @@ function displayStoreItems() {
         listPS.appendChild(stoke);
         cardBody2.appendChild(addToCard);
         tempCard.appendChild(cardBody2);
-
-        
     }
 }
 
