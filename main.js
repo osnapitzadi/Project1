@@ -29,9 +29,7 @@ function cartItems (id, price, qty, shippingPrice){
 
 // current time function
 function time(){
-    var d = new Date();
-    var n = d.toLocaleTimeString();
-    console.log(n);
+    var n = new Date().toLocaleString();
     var divTime = document.getElementById("time");
     divTime.innerHTML = n;
 }
