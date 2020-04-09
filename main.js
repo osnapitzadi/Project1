@@ -70,6 +70,7 @@ function displayStoreItems() {
         var tempCard = document.createElement("div");
         tempCard.className = "card col-lg-auto"; // the reason why I give class name is bootstrap library;
         tempCard.style = "width: 18rem;";
+        tempCard.setAttribute("id", "card");
 
         // card 
         var cardImg = document.createElement("IMG");
@@ -87,8 +88,8 @@ function displayStoreItems() {
         var cardText = document.createElement("p");
         cardText.className = "card-text";
         cardText.innerText = tempItem.description;
-        var listPS = document.createElement("ul");
 
+        var listPS = document.createElement("ul");
         listPS.className = "list-group " + "list-group-flush";
         var price = document.createElement("li");
 
