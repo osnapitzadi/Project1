@@ -68,7 +68,7 @@ function displayStoreItems() {
 
         //main div
         var tempCard = document.createElement("div");
-        tempCard.className = "card col-3"; // the reason why I give class name is bootstrap library;
+        tempCard.className = "card col-4"; // the reason why I give class name is bootstrap library;
         tempCard.style = "width: 18rem;";
 
         // card 
