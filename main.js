@@ -41,9 +41,9 @@ aStore.push(new items (9, "Amazon Jeans", 12.99, 25, 5, "Jeans", 4.99, [], "lore
 aStore.push(new items (10, "Champion's Hoodie", 34.99, 100, 10, "Hoodie", 4.99, [], "lorem ipsum description", "src/10.jpg"));
 aStore.push(new items (11, "Naruto Hoodie", 69.99, 100, 10, "Hoodie", 4.99, [], "lorem ipsum description", "src/11.png"));
 aStore.push(new items (12, "Just White Hoodie", 15.99, 100, 10, "Hoodie", 4.99, [], "lorem ipsum description", "src/12.png"));
-aStore.push(new items (13, "White Socks", 19.99, 100, 20, "Socks", 4.99, [], "lorem ipsum description", "src/12.png"));
-aStore.push(new items (14, "Black Socks", 19.99, 100, 20, "Socks", 4.99, [], "lorem ipsum description", "src/13.png"));
-aStore.push(new items (15, "Amazon Socks", 9.99, 100, 20, "Socks", 4.99, [], "lorem ipsum description", "src/14.png"));
+aStore.push(new items (13, "White Socks", 19.99, 100, 20, "Socks", 4.99, [], "lorem ipsum description", "src/13.png"));
+aStore.push(new items (14, "Black Socks", 19.99, 100, 20, "Socks", 4.99, [], "lorem ipsum description", "src/14.png"));
+aStore.push(new items (15, "Amazon Socks", 9.99, 100, 20, "Socks", 4.99, [], "lorem ipsum description", "src/15.png"));
 
 console.log(aStore);
 
