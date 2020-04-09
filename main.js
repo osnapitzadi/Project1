@@ -75,11 +75,29 @@ function displayStoreItems() {
         var cardText = document.createElement("p");
         cardText.className = "card-text";
         cardText.innerText = tempItem.description;
+        var listPS = document.createElement("ul");
+        listPS.className = "list-group " + "list-group-flush";
+        var price = document.createElement("li");
+        price.className = "list-group-item";
+        price.innerText = "Price: $" + tempItem.price;
+        var stoke = document.createElement("li");
+        stoke.className = "list-group-item";
+        stoke.innerText = "On Stoke: " + tempItem.qty;
+        var cardBody2 = document.createElement("div");
+        cardBody2.className = "card-body";
+        var addToCard = document.createElement("a");
+        addToCard.className = "card-link";
+        addToCard.innerText = "Add to card"
 
+        divOutput.appendChild(tempCard);
+        tempCard.appendChild(cardBody);
         cardBody.appendChild(cardTitle);
         cardBody.appendChild(cardText);
-        tempCard.appendChild(cardBody);
-        divOutput.appendChild(tempCard);
+        cardBody.appendChild(listPS);
+        listPS.appendChild(price);
+        listPS.appendChild(stoke);
+        cardBody2.appendChild(addToCard);
+        tempCard.appendChild(cardBody2);
 
         
     }
