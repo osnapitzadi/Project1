@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="main.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title> Online Store </title>
@@ -9,8 +10,19 @@
 </head>
 <body onload="init()">
     <div class="container">
-        <header><h1>Online Store</h1>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <header>
+            <div class="row">
+                <div class="col">
+                    <h1 id="storeName">Online Store</h1>
+                </div>
+                <div class = "col-md-auto">
+                    <div class="custom-control custom-switch" onchange="modeChange()">
+                        <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                        <label class="custom-control-label" for="customSwitch1" id = "modeLabel">Night mode</label>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" id="mainNavbar">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
