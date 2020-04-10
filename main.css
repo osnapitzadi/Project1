@@ -14,3 +14,13 @@
 #storeItems{
     margin-bottom: 20px;
 }
+
+#storeItems img{
+    height: 300px;
+    width: 100%;
+}
+
+#card{
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
