@@ -68,7 +68,8 @@ function displayStoreItems() {
 
         //main div
         var tempCard = document.createElement("div");
-        tempCard.className = "card col-lg-auto"; // the reason why I give class name is bootstrap library;
+         tempCard.className = "card col-lg-auto"; // the reason why I give class name is bootstrap library;
+        //tempCard.className = "card text-black bg-light col-lg-auto"; // the reason why I give class name is bootstrap library;
         tempCard.style = "width: 18rem;";
         tempCard.setAttribute("id", "card");
 
@@ -152,6 +153,23 @@ function modeChange(){
     document.getElementById("time").style.color = "#FFF";
     document.getElementById("modeLabel").style.color = "#FFF";
     document.getElementById("modeLabel").innerHTML = "Light mode";
+    //document.getElementsByClassName("card col-lg-auto").className = "card text-white bg-dark col-lg-auto"
+    var cards = document.getElementsByClassName("card col-lg-auto");
+        for(var i = 0; i<cards.length; i++){
+            cards[i].style.background = "#404040";
+        }
+
+        var cardTitles = document.getElementsByClassName("card-title");
+        for(var i = 0; i<cardTitles.length; i++){
+            cardTitles[i].style.color = "#FFF";
+        }
+
+        var cardTitles = document.getElementsByClassName("list-group-item");
+        for(var i = 0; i<cardTitles.length; i++){
+            cardTitles[i].style.color = "#FFF";
+            cardTitles[i].style.background = "#404040";
+        }
+
     } else {
         document.getElementById("storeName").style.color="black";
         document.body.style.background = "#FFF";
@@ -159,6 +177,23 @@ function modeChange(){
         document.getElementById("time").style.color = "#000";
         document.getElementById("modeLabel").style.color = "#000";
         document.getElementById("modeLabel").innerHTML = "Dark mode";
+        //document.getElementsByClassName("card text-white bg-dark col-lg-auto").className = "card col-lg-auto"
+        var cards = document.getElementsByClassName("card col-lg-auto");
+        for(var i = 0; i<cards.length; i++){
+            cards[i].style.background = "#FFF";
+        }
+
+        var cardTitles = document.getElementsByClassName("card-title");
+        for(var i = 0; i<cardTitles.length; i++){
+            cardTitles[i].style.color = "black";
+        }
+
+        var cardTitles = document.getElementsByClassName("list-group-item");
+        for(var i = 0; i<cardTitles.length; i++){
+            cardTitles[i].style.color = "black";
+            cardTitles[i].style.background = "#FFF";
+        }
+
     }
 }
 
