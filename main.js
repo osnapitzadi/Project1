@@ -29,21 +29,21 @@ function cartItems (id, price, qty, shippingPrice){
 var immage = false;
 // Constructor Calls
 
-aStore.push(new items (1, "Nike Pro", 119.99, 1, 1, "Shoos", 4.99, [],"dsfegrdjh", "src/1.png"));
-aStore.push(new items (2, "Adidas Origin", 199.99, 10, 5, "Shoos", 4.99, [],"qsdfgdf", "src/2.jpg"));
-aStore.push(new items (3, "New Balance", 159.99, 20, 5, "Shoos", 4.99, [], "lorem ipsum description", "src/3.jpg"));
-aStore.push(new items (4, "Polo T-Shirt", 19.99, 25, 5, "T-Shirt", 4.99, [], "lorem ipsum description", "src/4.png"));
-aStore.push(new items (5, "T-Shirt", 21.99, 25, 5, "T-Shirt", 4.99, [], "lorem ipsum description", "src/5.jpg"));
-aStore.push(new items (6, "Amazon T-Shirt", 9.99, 25, 5, "T-Shirt", 4.99, [], "lorem ipsum description", "src/6.png"));
-aStore.push(new items (7, "Levi's Jeans", 59.99, 25, 5, "Jeans", 4.99, [], "lorem ipsum description", "src/7.jpg"));
-aStore.push(new items (8, "Jack & Jones Jeans", 99.99, 25, 5, "Jeans", 4.99, [], "lorem ipsum description", "src/8.jpg"));
-aStore.push(new items (9, "Amazon Jeans", 12.99, 25, 5, "Jeans", 4.99, [], "lorem ipsum description", "src/9.jpg"));
-aStore.push(new items (10, "Champion's Hoodie", 34.99, 100, 10, "Hoodie", 4.99, [], "lorem ipsum description", "src/10.jpg"));
-aStore.push(new items (11, "Naruto Hoodie", 69.99, 100, 10, "Hoodie", 4.99, [], "lorem ipsum description", "src/11.png"));
-aStore.push(new items (12, "Just White Hoodie", 15.99, 100, 10, "Hoodie", 4.99, [], "lorem ipsum description", "src/12.png"));
-aStore.push(new items (13, "White Socks", 19.99, 100, 20, "Socks", 4.99, [], "lorem ipsum description", "src/13.png"));
-aStore.push(new items (14, "Black Socks", 19.99, 100, 20, "Socks", 4.99, [], "lorem ipsum description", "src/14.png"));
-aStore.push(new items (15, "Amazon Socks", 9.99, 100, 20, "Socks", 4.99, [], "lorem ipsum description", "src/15.png"));
+aStore.push(new items (1, "Nike Pro", 119.99, 1, 1, "Shoos", 4.99, getRandowReviews(), "", "src/1.png"));
+aStore.push(new items (2, "Adidas Origin", 199.99, 10, 5, "Shoos", 4.99, getRandowReviews(), "", "src/2.jpg"));
+aStore.push(new items (3, "New Balance", 159.99, 20, 5, "Shoos", 4.99,  getRandowReviews(), "",  "src/3.jpg"));
+aStore.push(new items (4, "Polo T-Shirt", 19.99, 25, 5, "T-Shirt", 4.99,  getRandowReviews(), "",  "src/4.png"));
+aStore.push(new items (5, "T-Shirt", 21.99, 25, 5, "T-Shirt", 4.99,  getRandowReviews(), "",  "src/5.jpg"));
+aStore.push(new items (6, "Amazon T-Shirt", 9.99, 25, 5, "T-Shirt", 4.99,  getRandowReviews(), "",  "src/6.png"));
+aStore.push(new items (7, "Levi's Jeans", 59.99, 25, 5, "Jeans", 4.99,  getRandowReviews(), "",  "src/7.jpg"));
+aStore.push(new items (8, "Jack & Jones Jeans", 99.99, 25, 5, "Jeans", 4.99,  getRandowReviews(), "",  "src/8.jpg"));
+aStore.push(new items (9, "Amazon Jeans", 12.99, 25, 5, "Jeans", 4.99,  getRandowReviews(), "",  "src/9.jpg"));
+aStore.push(new items (10, "Champion's Hoodie", 34.99, 100, 10, "Hoodie", 4.99,  getRandowReviews(), "",  "src/10.jpg"));
+aStore.push(new items (11, "Naruto Hoodie", 69.99, 100, 10, "Hoodie", 4.99,  getRandowReviews(), "",  "src/11.png"));
+aStore.push(new items (12, "Just White Hoodie", 15.99, 100, 10, "Hoodie", 4.99,  getRandowReviews(), "",  "src/12.png"));
+aStore.push(new items (13, "White Socks", 19.99, 100, 20, "Socks", 4.99,  getRandowReviews(), "",  "src/13.png"));
+aStore.push(new items (14, "Black Socks", 19.99, 100, 20, "Socks", 4.99,  getRandowReviews(), "",  "src/14.png"));
+aStore.push(new items (15, "Amazon Socks", 9.99, 100, 20, "Socks", 4.99,  getRandowReviews(), "",  "src/15.png"));
 
 console.log(aStore);
 
@@ -106,6 +106,25 @@ function displayStoreItems() {
         addToCard.className = "card-btn btn-primary";
         addToCard.innerText = "Add to card"
 
+        var rews = document.createElement('button');
+        rews.className = "btn btn-link";
+        rews.setAttribute("type","button");
+        rews.setAttribute("data-toggle","collapse");
+        rews.setAttribute("data-target","collapseOne");
+        rews.setAttribute("aria-expanded","true");
+        rews.setAttribute("aria-controls","collapseOne");
+        rews.innerText = "Reviews";
+
+        var rewsShow = document.createElement("div");
+        rewsShow.className = "collapse show"
+        rewsShow.setAttribute("id", "collapseOne");
+        rewsShow.setAttribute("aria-labelledby" ,"headingOne");
+        rewsShow.setAttribute("data-parent", "#accordionExample");
+        var rewsShowText = document.createElement("div")
+        rewsShowText.className = "card-body";
+        rewsShowText.innerText = tempItem.reviews;
+        
+
         //child parent stucture
         divOutput.appendChild(tempCard);
         tempCard.appendChild(cardImg);
@@ -117,6 +136,10 @@ function displayStoreItems() {
         listPS.appendChild(stoke);
         cardBody2.appendChild(addToCard);
         tempCard.appendChild(cardBody2);
+        cardBody2.appendChild(rews);
+        cardBody2.appendChild(rewsShow);
+        cardBody2.appendChild(rewsShowText);
+
     }
 }
 
@@ -151,3 +174,17 @@ setInterval(function(){
     }
     document.getElementById("storeName").innerHTML = words[currentWord];
 }, 3000);
+
+
+function randomNumber(max){
+    return Math.round(Math.random() * (max - 0) + 0);
+}
+
+
+function getRandowReviews() {
+    var reviews = ["very good", "satisfied", "I don't like it", "Shipping was very long", "excellent quality", "I'll buy more!!!!!!", "nah", "****", "5 stars"];
+    var asd = [reviews[randomNumber(reviews.length)],reviews[randomNumber(reviews.length)],reviews[randomNumber(reviews.length)]];
+    return asd;
+}
+
+console.log(getRandowReviews());
