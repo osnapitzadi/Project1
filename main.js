@@ -26,12 +26,29 @@ function cartItems (id, price, qty, shippingPrice){
     this.shippingPrice = shippingPrice
 };
 
-// current time function
-function time(){
-    var n = new Date().toLocaleString();
-    var divTime = document.getElementById("time");
-    divTime.innerHTML = n;
-}
+function currentTime() {
+    var date = new Date(); /* creating object of Date class */
+    var hour = date.getHours();
+    var min = date.getMinutes();
+    var sec = date.getSeconds();
+    var day = date.getDay();
+    var month = date.getMonth();
+    var year = date.getFullYear();
+    hour = updateTime(hour);
+    min = updateTime(min);
+    sec = updateTime(sec);
+    document.getElementById("time").innerText = month + "/" + day + "/" + year + "/" + " " + hour + " : " + min + " : " + sec; /* adding time to the div */
+      var t = setTimeout(function(){ currentTime() }, 1000); /* setting timer */
+  }
+  
+  function updateTime(k) {
+    if (k < 10) {
+      return "0" + k;
+    }
+    else {
+      return k;
+    }
+  }
 
 function init() {
     // Constructor Calls
@@ -51,7 +68,7 @@ function init() {
     aStore.push(new items (14, "Black Socks", 19.99, 100, 20, "Socks", 4.99,  getRandowReviews(), "Phasellus leo velit, tincidunt et mollis vel, dapibus ut mi.",  "src/14.png"));
     aStore.push(new items (15, "Amazon Socks", 9.99, 100, 20, "Socks", 4.99,  getRandowReviews(), " Donec vitae nunc vitae ante pretium pulvinar vitae et lacus. Fusce laoreet tristique mi, pretium auctor risus aliquam sed. ",  "src/15.png"));
 
-    time();
+    currentTime();
     displayStoreItems(0);
     displayCartItems();
     displayStoreItemsDetails() 
@@ -103,15 +120,16 @@ function displayStoreItems(categoryID) {
             cardBody2.className = "card-body container";
 
             var detailsButton = document.createElement("button");
-            detailsButton.className = "card-btn btn-info";
+            detailsButton.className = "btn btn-outline-secondary";
             detailsButton.setAttribute("type","button");
             detailsButton.setAttribute("data-toggle","modal");
             detailsButton.setAttribute("data-target","#exampleModalLong"+index);
-            detailsButton.innerHTML = "More Info"
+            detailsButton.setAttribute("id", "infoBtn");
+            detailsButton.innerHTML = "More Info";
 
             var addToCard = document.createElement("button");
-            addToCard.className = "card-btn btn-primary";
-            addToCard.innerText = "Add to card"
+            addToCard.className = "btn btn-outline-dark";
+            addToCard.innerText = "Add to card";
 
             
 
@@ -168,9 +186,17 @@ function displayStoreItems(categoryID) {
             var cardBody2 = document.createElement("div");
             cardBody2.className = "card-body";
 
+            var detailsButton = document.createElement("button");
+            detailsButton.className = "btn btn-outline-secondary";
+            detailsButton.setAttribute("type","button");
+            detailsButton.setAttribute("data-toggle","modal");
+            detailsButton.setAttribute("data-target","#exampleModalLong"+index);
+            detailsButton.setAttribute("id", "infoBtn");
+            detailsButton.innerHTML = "More Info";
+
             var addToCard = document.createElement("button");
-            addToCard.className = "card-btn btn-primary";
-            addToCard.innerText = "Add to card"
+            addToCard.className = "btn btn-outline-dark";
+            addToCard.innerText = "Add to card";
 
             
 
@@ -184,6 +210,7 @@ function displayStoreItems(categoryID) {
             listPS.appendChild(price);
             listPS.appendChild(stoke);
             cardBody2.appendChild(addToCard);
+            cardBody2.appendChild(detailsButton);
             tempCard.appendChild(cardBody2);
 
 
@@ -226,9 +253,17 @@ function displayStoreItems(categoryID) {
             var cardBody2 = document.createElement("div");
             cardBody2.className = "card-body";
 
+            var detailsButton = document.createElement("button");
+            detailsButton.className = "btn btn-outline-secondary";
+            detailsButton.setAttribute("type","button");
+            detailsButton.setAttribute("data-toggle","modal");
+            detailsButton.setAttribute("data-target","#exampleModalLong"+index);
+            detailsButton.setAttribute("id", "infoBtn");
+            detailsButton.innerHTML = "More Info";
+
             var addToCard = document.createElement("button");
-            addToCard.className = "card-btn btn-primary";
-            addToCard.innerText = "Add to card"
+            addToCard.className = "btn btn-outline-dark";
+            addToCard.innerText = "Add to card";
 
             
 
@@ -242,6 +277,7 @@ function displayStoreItems(categoryID) {
             listPS.appendChild(price);
             listPS.appendChild(stoke);
             cardBody2.appendChild(addToCard);
+            cardBody2.appendChild(detailsButton);
             tempCard.appendChild(cardBody2);
 
         } else if (categoryID == 3 && tempItem.category === "Jeans") {
@@ -283,9 +319,17 @@ function displayStoreItems(categoryID) {
             var cardBody2 = document.createElement("div");
             cardBody2.className = "card-body";
 
+            var detailsButton = document.createElement("button");
+            detailsButton.className = "btn btn-outline-secondary";
+            detailsButton.setAttribute("type","button");
+            detailsButton.setAttribute("data-toggle","modal");
+            detailsButton.setAttribute("data-target","#exampleModalLong"+index);
+            detailsButton.setAttribute("id", "infoBtn");
+            detailsButton.innerHTML = "More Info";
+
             var addToCard = document.createElement("button");
-            addToCard.className = "card-btn btn-primary";
-            addToCard.innerText = "Add to card"
+            addToCard.className = "btn btn-outline-dark";
+            addToCard.innerText = "Add to card";
 
             
 
@@ -299,6 +343,7 @@ function displayStoreItems(categoryID) {
             listPS.appendChild(price);
             listPS.appendChild(stoke);
             cardBody2.appendChild(addToCard);
+            cardBody2.appendChild(detailsButton);
             tempCard.appendChild(cardBody2);
 
         } else if (categoryID == 4 && tempItem.category === "Hoodie") {
@@ -340,9 +385,17 @@ function displayStoreItems(categoryID) {
             var cardBody2 = document.createElement("div");
             cardBody2.className = "card-body";
 
+            var detailsButton = document.createElement("button");
+            detailsButton.className = "btn btn-outline-secondary";
+            detailsButton.setAttribute("type","button");
+            detailsButton.setAttribute("data-toggle","modal");
+            detailsButton.setAttribute("data-target","#exampleModalLong"+index);
+            detailsButton.setAttribute("id", "infoBtn");
+            detailsButton.innerHTML = "More Info";
+
             var addToCard = document.createElement("button");
-            addToCard.className = "card-btn btn-primary";
-            addToCard.innerText = "Add to card"
+            addToCard.className = "btn btn-outline-dark";
+            addToCard.innerText = "Add to card";
 
             
 
@@ -356,6 +409,7 @@ function displayStoreItems(categoryID) {
             listPS.appendChild(price);
             listPS.appendChild(stoke);
             cardBody2.appendChild(addToCard);
+            cardBody2.appendChild(detailsButton);
             tempCard.appendChild(cardBody2);
 
         } else if (categoryID == 5 && tempItem.category === "Socks") {
@@ -397,9 +451,17 @@ function displayStoreItems(categoryID) {
             var cardBody2 = document.createElement("div");
             cardBody2.className = "card-body";
 
+            var detailsButton = document.createElement("button");
+            detailsButton.className = "btn btn-outline-secondary";
+            detailsButton.setAttribute("type","button");
+            detailsButton.setAttribute("data-toggle","modal");
+            detailsButton.setAttribute("data-target","#exampleModalLong"+index);
+            detailsButton.setAttribute("id", "infoBtn");
+            detailsButton.innerHTML = "More Info";
+
             var addToCard = document.createElement("button");
-            addToCard.className = "card-btn btn-primary";
-            addToCard.innerText = "Add to card"
+            addToCard.className = "btn btn-outline-dark";
+            addToCard.innerText = "Add to card";
 
             
 
@@ -413,6 +475,7 @@ function displayStoreItems(categoryID) {
             listPS.appendChild(price);
             listPS.appendChild(stoke);
             cardBody2.appendChild(addToCard);
+            cardBody2.appendChild(detailsButton);
             tempCard.appendChild(cardBody2);
 
         }
@@ -518,6 +581,13 @@ function modeChange(){
             cardTitles[i].style.background = "#404040";
         }
 
+        var btn = document.getElementsByClassName("btn btn-outline-dark");
+        var dlina = btn.length;
+        for(var i = 0; i<dlina; i++)
+        {
+            btn[0].setAttribute("class", "btn btn-outline-light");
+        }
+
     } else {
         document.getElementById("storeName").style.color="black";
         document.body.style.background = "#FFF";
@@ -540,6 +610,13 @@ function modeChange(){
         for(var i = 0; i<cardTitles.length; i++){
             cardTitles[i].style.color = "black";
             cardTitles[i].style.background = "#FFF";
+        }
+
+        var btn = document.getElementsByClassName("btn btn-outline-light");
+        var dlina = btn.length;
+        for(var i = 0; i<dlina; i++)
+        {
+            btn[0].setAttribute("class", "btn btn-outline-dark");
         }
 
     }
