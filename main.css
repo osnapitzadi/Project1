@@ -61,3 +61,6 @@ and (max-device-width : 575px) {
 
 }
 
+#infoBtn{
+    margin: 5px;
+}
