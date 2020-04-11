@@ -99,29 +99,19 @@ function displayStoreItems(categoryID) {
             stoke.innerText = "On Stoke: " + tempItem.qty;
 
             var cardBody2 = document.createElement("div");
-            cardBody2.className = "card-body";
+            cardBody2.className = "card-body container";
+
+            var detailsButton = document.createElement("button");
+            detailsButton.className = "card-btn btn-info";
+            detailsButton.setAttribute("type","button");
+            detailsButton.setAttribute("data-toggle","button");
+            detailsButton.setAttribute("data-target","#exampleModalLong"+index);
+            detailsButton.innerHTML = "More Info"
 
             var addToCard = document.createElement("button");
             addToCard.className = "card-btn btn-primary";
             addToCard.innerText = "Add to card"
 
-            var rews = document.createElement('button');
-            rews.className = "btn btn-link";
-            rews.setAttribute("type","button");
-            rews.setAttribute("data-toggle","collapse");
-            rews.setAttribute("data-target","collapseOne");
-            rews.setAttribute("aria-expanded","true");
-            rews.setAttribute("aria-controls","collapseOne");
-            rews.innerText = "Reviews";
-
-            var rewsShow = document.createElement("div");
-            rewsShow.className = "collapse show"
-            rewsShow.setAttribute("id", "collapseOne");
-            rewsShow.setAttribute("aria-labelledby" ,"headingOne");
-            rewsShow.setAttribute("data-parent", "#accordionExample");
-            var rewsShowText = document.createElement("div")
-            rewsShowText.className = "card-body";
-            rewsShowText.innerText = tempItem.reviews;
             
 
             //child parent stucture
@@ -134,10 +124,9 @@ function displayStoreItems(categoryID) {
             listPS.appendChild(price);
             listPS.appendChild(stoke);
             cardBody2.appendChild(addToCard);
+            cardBody2.appendChild(detailsButton);
             tempCard.appendChild(cardBody2);
-            cardBody2.appendChild(rews);
-            cardBody2.appendChild(rewsShow);
-            cardBody2.appendChild(rewsShowText);
+
 
         } else if (categoryID == 1 && tempItem.category === "Shoes") {
             //main div
@@ -182,23 +171,6 @@ function displayStoreItems(categoryID) {
             addToCard.className = "card-btn btn-primary";
             addToCard.innerText = "Add to card"
 
-            var rews = document.createElement('button');
-            rews.className = "btn btn-link";
-            rews.setAttribute("type","button");
-            rews.setAttribute("data-toggle","collapse");
-            rews.setAttribute("data-target","collapseOne");
-            rews.setAttribute("aria-expanded","true");
-            rews.setAttribute("aria-controls","collapseOne");
-            rews.innerText = "Reviews";
-
-            var rewsShow = document.createElement("div");
-            rewsShow.className = "collapse show"
-            rewsShow.setAttribute("id", "collapseOne");
-            rewsShow.setAttribute("aria-labelledby" ,"headingOne");
-            rewsShow.setAttribute("data-parent", "#accordionExample");
-            var rewsShowText = document.createElement("div")
-            rewsShowText.className = "card-body";
-            rewsShowText.innerText = tempItem.reviews;
             
 
             //child parent stucture
@@ -212,9 +184,7 @@ function displayStoreItems(categoryID) {
             listPS.appendChild(stoke);
             cardBody2.appendChild(addToCard);
             tempCard.appendChild(cardBody2);
-            cardBody2.appendChild(rews);
-            cardBody2.appendChild(rewsShow);
-            cardBody2.appendChild(rewsShowText);
+
 
         } else if (categoryID == 2 && tempItem.category === "T-Shirt") {
             //main div
@@ -259,23 +229,6 @@ function displayStoreItems(categoryID) {
             addToCard.className = "card-btn btn-primary";
             addToCard.innerText = "Add to card"
 
-            var rews = document.createElement('button');
-            rews.className = "btn btn-link";
-            rews.setAttribute("type","button");
-            rews.setAttribute("data-toggle","collapse");
-            rews.setAttribute("data-target","collapseOne");
-            rews.setAttribute("aria-expanded","true");
-            rews.setAttribute("aria-controls","collapseOne");
-            rews.innerText = "Reviews";
-
-            var rewsShow = document.createElement("div");
-            rewsShow.className = "collapse show"
-            rewsShow.setAttribute("id", "collapseOne");
-            rewsShow.setAttribute("aria-labelledby" ,"headingOne");
-            rewsShow.setAttribute("data-parent", "#accordionExample");
-            var rewsShowText = document.createElement("div")
-            rewsShowText.className = "card-body";
-            rewsShowText.innerText = tempItem.reviews;
             
 
             //child parent stucture
@@ -289,9 +242,7 @@ function displayStoreItems(categoryID) {
             listPS.appendChild(stoke);
             cardBody2.appendChild(addToCard);
             tempCard.appendChild(cardBody2);
-            cardBody2.appendChild(rews);
-            cardBody2.appendChild(rewsShow);
-            cardBody2.appendChild(rewsShowText);
+
         } else if (categoryID == 3 && tempItem.category === "Jeans") {
             //main div
             var tempCard = document.createElement("div");
@@ -335,23 +286,6 @@ function displayStoreItems(categoryID) {
             addToCard.className = "card-btn btn-primary";
             addToCard.innerText = "Add to card"
 
-            var rews = document.createElement('button');
-            rews.className = "btn btn-link";
-            rews.setAttribute("type","button");
-            rews.setAttribute("data-toggle","collapse");
-            rews.setAttribute("data-target","collapseOne");
-            rews.setAttribute("aria-expanded","true");
-            rews.setAttribute("aria-controls","collapseOne");
-            rews.innerText = "Reviews";
-
-            var rewsShow = document.createElement("div");
-            rewsShow.className = "collapse show"
-            rewsShow.setAttribute("id", "collapseOne");
-            rewsShow.setAttribute("aria-labelledby" ,"headingOne");
-            rewsShow.setAttribute("data-parent", "#accordionExample");
-            var rewsShowText = document.createElement("div")
-            rewsShowText.className = "card-body";
-            rewsShowText.innerText = tempItem.reviews;
             
 
             //child parent stucture
@@ -365,9 +299,7 @@ function displayStoreItems(categoryID) {
             listPS.appendChild(stoke);
             cardBody2.appendChild(addToCard);
             tempCard.appendChild(cardBody2);
-            cardBody2.appendChild(rews);
-            cardBody2.appendChild(rewsShow);
-            cardBody2.appendChild(rewsShowText);
+
         } else if (categoryID == 4 && tempItem.category === "Hoodie") {
             //main div
             var tempCard = document.createElement("div");
@@ -411,23 +343,6 @@ function displayStoreItems(categoryID) {
             addToCard.className = "card-btn btn-primary";
             addToCard.innerText = "Add to card"
 
-            var rews = document.createElement('button');
-            rews.className = "btn btn-link";
-            rews.setAttribute("type","button");
-            rews.setAttribute("data-toggle","collapse");
-            rews.setAttribute("data-target","collapseOne");
-            rews.setAttribute("aria-expanded","true");
-            rews.setAttribute("aria-controls","collapseOne");
-            rews.innerText = "Reviews";
-
-            var rewsShow = document.createElement("div");
-            rewsShow.className = "collapse show"
-            rewsShow.setAttribute("id", "collapseOne");
-            rewsShow.setAttribute("aria-labelledby" ,"headingOne");
-            rewsShow.setAttribute("data-parent", "#accordionExample");
-            var rewsShowText = document.createElement("div")
-            rewsShowText.className = "card-body";
-            rewsShowText.innerText = tempItem.reviews;
             
 
             //child parent stucture
@@ -441,9 +356,7 @@ function displayStoreItems(categoryID) {
             listPS.appendChild(stoke);
             cardBody2.appendChild(addToCard);
             tempCard.appendChild(cardBody2);
-            cardBody2.appendChild(rews);
-            cardBody2.appendChild(rewsShow);
-            cardBody2.appendChild(rewsShowText);
+
         } else if (categoryID == 5 && tempItem.category === "Socks") {
             //main div
             var tempCard = document.createElement("div");
@@ -487,23 +400,6 @@ function displayStoreItems(categoryID) {
             addToCard.className = "card-btn btn-primary";
             addToCard.innerText = "Add to card"
 
-            var rews = document.createElement('button');
-            rews.className = "btn btn-link";
-            rews.setAttribute("type","button");
-            rews.setAttribute("data-toggle","collapse");
-            rews.setAttribute("data-target","collapseOne");
-            rews.setAttribute("aria-expanded","true");
-            rews.setAttribute("aria-controls","collapseOne");
-            rews.innerText = "Reviews";
-
-            var rewsShow = document.createElement("div");
-            rewsShow.className = "collapse show"
-            rewsShow.setAttribute("id", "collapseOne");
-            rewsShow.setAttribute("aria-labelledby" ,"headingOne");
-            rewsShow.setAttribute("data-parent", "#accordionExample");
-            var rewsShowText = document.createElement("div")
-            rewsShowText.className = "card-body";
-            rewsShowText.innerText = tempItem.reviews;
             
 
             //child parent stucture
@@ -517,11 +413,34 @@ function displayStoreItems(categoryID) {
             listPS.appendChild(stoke);
             cardBody2.appendChild(addToCard);
             tempCard.appendChild(cardBody2);
-            cardBody2.appendChild(rews);
-            cardBody2.appendChild(rewsShow);
-            cardBody2.appendChild(rewsShowText);
+
         }
 
+    }
+}
+
+function displayStoreItemsDetails () {
+    for (let index = 0; index < aStore.length; index++) {
+        const storeItem = aStore[index];
+
+        var mainModalDiv = document.createElement("div");
+        mainModalDiv.className = "modal fade";
+        mainModalDiv.setAttribute("id", "exampleModalLong"+index);
+        mainModalDiv.setAttribute("tabindex", "-1");
+        mainModalDiv.setAttribute("role", "dialog");
+        mainModalDiv.setAttribute("aria-labelledby", "exampleModalLongTitle");
+        mainModalDiv.setAttribute("aria-hidden", "true");
+
+        var main2ModalDiv = document.createElement("div");
+        main2ModalDiv.className = "modal-dialog"; 
+        main2ModalDiv.setAttribute("role", "document");
+
+        var contentDiv = document.createElement('div');
+        contentDiv.className = 'modal-content';
+
+        var headerDiv = document.createElement('div');
+        
+        
     }
 }
 
@@ -598,9 +517,10 @@ function randomNumber(max){
 
 
 function getRandowReviews() {
+    var names = ["A****", "B****", "C****", "D****", "F****", "T****", "E****", "S****", "G****", "R****", "H****", "J****", "L****"]
     var reviews = ["very good", "satisfied", "I don't like it", "Shipping was very long", "excellent quality", "I'll buy more!!!!!!", "nah", "****", "5 stars"];
-    var asd = [reviews[randomNumber(reviews.length)],reviews[randomNumber(reviews.length)],reviews[randomNumber(reviews.length)]];
-    return asd;
+    var reviewObject = [[names[randomNumber(names.length)],reviews[randomNumber(reviews.length - 1)]],[names[randomNumber(names.length)],reviews[randomNumber(reviews.length - 1)]],[names[randomNumber(names.length)],reviews[randomNumber(reviews.length)]]];
+    return reviewObject;
 }
 
 
