@@ -26,12 +26,29 @@ function cartItems (id, price, qty, shippingPrice){
     this.shippingPrice = shippingPrice
 };
 
-// current time function
-function time(){
-    var n = new Date().toLocaleString();
-    var divTime = document.getElementById("time");
-    divTime.innerHTML = n;
-}
+function currentTime() {
+    var date = new Date(); /* creating object of Date class */
+    var hour = date.getHours();
+    var min = date.getMinutes();
+    var sec = date.getSeconds();
+    var day = date.getDay();
+    var month = date.getMonth();
+    var year = date.getFullYear();
+    hour = updateTime(hour);
+    min = updateTime(min);
+    sec = updateTime(sec);
+    document.getElementById("time").innerText = month + "/" + day + "/" + year + "/" + " " + hour + " : " + min + " : " + sec; /* adding time to the div */
+      var t = setTimeout(function(){ currentTime() }, 1000); /* setting timer */
+  }
+  
+  function updateTime(k) {
+    if (k < 10) {
+      return "0" + k;
+    }
+    else {
+      return k;
+    }
+  }
 
 function init() {
     // Constructor Calls
@@ -51,7 +68,7 @@ function init() {
     aStore.push(new items (14, "Black Socks", 19.99, 100, 20, "Socks", 4.99,  getRandowReviews(), "Phasellus leo velit, tincidunt et mollis vel, dapibus ut mi.",  "src/14.png"));
     aStore.push(new items (15, "Amazon Socks", 9.99, 100, 20, "Socks", 4.99,  getRandowReviews(), " Donec vitae nunc vitae ante pretium pulvinar vitae et lacus. Fusce laoreet tristique mi, pretium auctor risus aliquam sed. ",  "src/15.png"));
 
-    time();
+    currentTime();
     displayStoreItems(0);
     displayCartItems();
 }
@@ -102,7 +119,7 @@ function displayStoreItems(categoryID) {
             cardBody2.className = "card-body";
 
             var addToCard = document.createElement("button");
-            addToCard.className = "card-btn btn-primary";
+            addToCard.className = "btn btn-outline-dark";
             addToCard.innerText = "Add to card"
 
             var rews = document.createElement('button');
@@ -179,7 +196,7 @@ function displayStoreItems(categoryID) {
             cardBody2.className = "card-body";
 
             var addToCard = document.createElement("button");
-            addToCard.className = "card-btn btn-primary";
+            addToCard.className = "btn btn-outline-dark";
             addToCard.innerText = "Add to card"
 
             var rews = document.createElement('button');
@@ -256,7 +273,7 @@ function displayStoreItems(categoryID) {
             cardBody2.className = "card-body";
 
             var addToCard = document.createElement("button");
-            addToCard.className = "card-btn btn-primary";
+            addToCard.className = "btn btn-outline-dark";
             addToCard.innerText = "Add to card"
 
             var rews = document.createElement('button');
@@ -332,7 +349,7 @@ function displayStoreItems(categoryID) {
             cardBody2.className = "card-body";
 
             var addToCard = document.createElement("button");
-            addToCard.className = "card-btn btn-primary";
+            addToCard.className = "btn btn-outline-dark";
             addToCard.innerText = "Add to card"
 
             var rews = document.createElement('button');
@@ -408,7 +425,7 @@ function displayStoreItems(categoryID) {
             cardBody2.className = "card-body";
 
             var addToCard = document.createElement("button");
-            addToCard.className = "card-btn btn-primary";
+            addToCard.className = "btn btn-outline-dark";
             addToCard.innerText = "Add to card"
 
             var rews = document.createElement('button');
@@ -484,7 +501,7 @@ function displayStoreItems(categoryID) {
             cardBody2.className = "card-body";
 
             var addToCard = document.createElement("button");
-            addToCard.className = "card-btn btn-primary";
+            addToCard.className = "btn btn-outline-dark";
             addToCard.innerText = "Add to card"
 
             var rews = document.createElement('button');
@@ -551,6 +568,12 @@ function modeChange(){
             cardTitles[i].style.background = "#404040";
         }
 
+        var btn = document.getElementsByClassName("btn btn-outline-dark");
+        for(var i = 0; i<btn.length; i++)
+        {
+            btn[0].setAttribute("class", "btn btn-outline-light");
+        }
+
     } else {
         document.getElementById("storeName").style.color="black";
         document.body.style.background = "#FFF";
@@ -573,6 +596,12 @@ function modeChange(){
         for(var i = 0; i<cardTitles.length; i++){
             cardTitles[i].style.color = "black";
             cardTitles[i].style.background = "#FFF";
+        }
+
+        var btn = document.getElementsByClassName("btn btn-outline-light");
+        for(var i = 0; i<btn.length; i++)
+        {
+            btn[0].setAttribute("class", "btn btn-outline-dark");
         }
 
     }
