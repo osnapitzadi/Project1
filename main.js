@@ -435,10 +435,19 @@ function displayStoreItemsDetails () {
         main2ModalDiv.className = "modal-dialog"; 
         main2ModalDiv.setAttribute("role", "document");
 
-        var contentDiv = document.createElement('div');
-        contentDiv.className = 'modal-content';
+            var contentDiv = document.createElement('div');
+            contentDiv.className = 'modal-content';
 
-        var headerDiv = document.createElement('div');
+            var headerDiv = document.createElement('div');
+            headerDiv.className = 'modal-header';
+
+            var modalTitle = document.createElement('h5');
+            modalTitle.className = 'modal-title';
+            modalTitle.setAttribute('id', 'exampleModalLongTitle');
+            modalTitle.innerText = storeItem.name;
+
+            var xButton = document.createElement = ''
+
         
         
     }
