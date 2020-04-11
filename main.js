@@ -119,15 +119,16 @@ function displayStoreItems(categoryID) {
             cardBody2.className = "card-body container";
 
             var detailsButton = document.createElement("button");
-            detailsButton.className = "card-btn btn-info";
+            detailsButton.className = "btn btn-outline-secondary";
             detailsButton.setAttribute("type","button");
-            detailsButton.setAttribute("data-toggle","button");
+            detailsButton.setAttribute("data-toggle","modal");
             detailsButton.setAttribute("data-target","#exampleModalLong"+index);
-            detailsButton.innerHTML = "More Info"
+            detailsButton.setAttribute("id", "infoBtn");
+            detailsButton.innerHTML = "More Info";
 
             var addToCard = document.createElement("button");
             addToCard.className = "btn btn-outline-dark";
-            addToCard.innerText = "Add to card"
+            addToCard.innerText = "Add to card";
 
             
 
@@ -184,9 +185,17 @@ function displayStoreItems(categoryID) {
             var cardBody2 = document.createElement("div");
             cardBody2.className = "card-body";
 
+            var detailsButton = document.createElement("button");
+            detailsButton.className = "btn btn-outline-secondary";
+            detailsButton.setAttribute("type","button");
+            detailsButton.setAttribute("data-toggle","modal");
+            detailsButton.setAttribute("data-target","#exampleModalLong"+index);
+            detailsButton.setAttribute("id", "infoBtn");
+            detailsButton.innerHTML = "More Info";
+
             var addToCard = document.createElement("button");
             addToCard.className = "btn btn-outline-dark";
-            addToCard.innerText = "Add to card"
+            addToCard.innerText = "Add to card";
 
             
 
@@ -200,6 +209,7 @@ function displayStoreItems(categoryID) {
             listPS.appendChild(price);
             listPS.appendChild(stoke);
             cardBody2.appendChild(addToCard);
+            cardBody2.appendChild(detailsButton);
             tempCard.appendChild(cardBody2);
 
 
@@ -242,9 +252,17 @@ function displayStoreItems(categoryID) {
             var cardBody2 = document.createElement("div");
             cardBody2.className = "card-body";
 
+            var detailsButton = document.createElement("button");
+            detailsButton.className = "btn btn-outline-secondary";
+            detailsButton.setAttribute("type","button");
+            detailsButton.setAttribute("data-toggle","modal");
+            detailsButton.setAttribute("data-target","#exampleModalLong"+index);
+            detailsButton.setAttribute("id", "infoBtn");
+            detailsButton.innerHTML = "More Info";
+
             var addToCard = document.createElement("button");
             addToCard.className = "btn btn-outline-dark";
-            addToCard.innerText = "Add to card"
+            addToCard.innerText = "Add to card";
 
             
 
@@ -258,6 +276,7 @@ function displayStoreItems(categoryID) {
             listPS.appendChild(price);
             listPS.appendChild(stoke);
             cardBody2.appendChild(addToCard);
+            cardBody2.appendChild(detailsButton);
             tempCard.appendChild(cardBody2);
 
         } else if (categoryID == 3 && tempItem.category === "Jeans") {
@@ -299,9 +318,17 @@ function displayStoreItems(categoryID) {
             var cardBody2 = document.createElement("div");
             cardBody2.className = "card-body";
 
+            var detailsButton = document.createElement("button");
+            detailsButton.className = "btn btn-outline-secondary";
+            detailsButton.setAttribute("type","button");
+            detailsButton.setAttribute("data-toggle","modal");
+            detailsButton.setAttribute("data-target","#exampleModalLong"+index);
+            detailsButton.setAttribute("id", "infoBtn");
+            detailsButton.innerHTML = "More Info";
+
             var addToCard = document.createElement("button");
             addToCard.className = "btn btn-outline-dark";
-            addToCard.innerText = "Add to card"
+            addToCard.innerText = "Add to card";
 
             
 
@@ -315,6 +342,7 @@ function displayStoreItems(categoryID) {
             listPS.appendChild(price);
             listPS.appendChild(stoke);
             cardBody2.appendChild(addToCard);
+            cardBody2.appendChild(detailsButton);
             tempCard.appendChild(cardBody2);
 
         } else if (categoryID == 4 && tempItem.category === "Hoodie") {
@@ -356,9 +384,17 @@ function displayStoreItems(categoryID) {
             var cardBody2 = document.createElement("div");
             cardBody2.className = "card-body";
 
+            var detailsButton = document.createElement("button");
+            detailsButton.className = "btn btn-outline-secondary";
+            detailsButton.setAttribute("type","button");
+            detailsButton.setAttribute("data-toggle","modal");
+            detailsButton.setAttribute("data-target","#exampleModalLong"+index);
+            detailsButton.setAttribute("id", "infoBtn");
+            detailsButton.innerHTML = "More Info";
+
             var addToCard = document.createElement("button");
             addToCard.className = "btn btn-outline-dark";
-            addToCard.innerText = "Add to card"
+            addToCard.innerText = "Add to card";
 
             
 
@@ -372,6 +408,7 @@ function displayStoreItems(categoryID) {
             listPS.appendChild(price);
             listPS.appendChild(stoke);
             cardBody2.appendChild(addToCard);
+            cardBody2.appendChild(detailsButton);
             tempCard.appendChild(cardBody2);
 
         } else if (categoryID == 5 && tempItem.category === "Socks") {
@@ -413,9 +450,17 @@ function displayStoreItems(categoryID) {
             var cardBody2 = document.createElement("div");
             cardBody2.className = "card-body";
 
+            var detailsButton = document.createElement("button");
+            detailsButton.className = "btn btn-outline-secondary";
+            detailsButton.setAttribute("type","button");
+            detailsButton.setAttribute("data-toggle","modal");
+            detailsButton.setAttribute("data-target","#exampleModalLong"+index);
+            detailsButton.setAttribute("id", "infoBtn");
+            detailsButton.innerHTML = "More Info";
+
             var addToCard = document.createElement("button");
             addToCard.className = "btn btn-outline-dark";
-            addToCard.innerText = "Add to card"
+            addToCard.innerText = "Add to card";
 
             
 
@@ -429,6 +474,7 @@ function displayStoreItems(categoryID) {
             listPS.appendChild(price);
             listPS.appendChild(stoke);
             cardBody2.appendChild(addToCard);
+            cardBody2.appendChild(detailsButton);
             tempCard.appendChild(cardBody2);
 
         }
@@ -488,7 +534,8 @@ function modeChange(){
         }
 
         var btn = document.getElementsByClassName("btn btn-outline-dark");
-        for(var i = 0; i<btn.length; i++)
+        var dlina = btn.length;
+        for(var i = 0; i<dlina; i++)
         {
             btn[0].setAttribute("class", "btn btn-outline-light");
         }
@@ -518,7 +565,8 @@ function modeChange(){
         }
 
         var btn = document.getElementsByClassName("btn btn-outline-light");
-        for(var i = 0; i<btn.length; i++)
+        var dlina = btn.length;
+        for(var i = 0; i<dlina; i++)
         {
             btn[0].setAttribute("class", "btn btn-outline-dark");
         }
