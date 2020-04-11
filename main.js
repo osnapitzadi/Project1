@@ -488,7 +488,8 @@ function modeChange(){
         }
 
         var btn = document.getElementsByClassName("btn btn-outline-dark");
-        for(var i = 0; i<btn.length; i++)
+        var dlina = btn.length;
+        for(var i = 0; i<dlina; i++)
         {
             btn[0].setAttribute("class", "btn btn-outline-light");
         }
@@ -518,7 +519,8 @@ function modeChange(){
         }
 
         var btn = document.getElementsByClassName("btn btn-outline-light");
-        for(var i = 0; i<btn.length; i++)
+        var dlina = btn.length;
+        for(var i = 0; i<dlina; i++)
         {
             btn[0].setAttribute("class", "btn btn-outline-dark");
         }
