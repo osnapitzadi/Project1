@@ -71,6 +71,7 @@ function init() {
     currentTime();
     displayStoreItems(0);
     displayCartItems();
+    displayStoreItemsDetails() 
 }
 
 function displayStoreItems(categoryID) {
@@ -482,7 +483,12 @@ function displayStoreItems(categoryID) {
     }
 }
 
-function displayStoreItemsDetails () {
+function displayStoreItemsDetails() {
+    
+    var hiddenDivOutput = document.getElementById("hiddenModals");
+ 
+    // console.log(aStore)
+
     for (let index = 0; index < aStore.length; index++) {
         const storeItem = aStore[index];
 
@@ -494,18 +500,60 @@ function displayStoreItemsDetails () {
         mainModalDiv.setAttribute("aria-labelledby", "exampleModalLongTitle");
         mainModalDiv.setAttribute("aria-hidden", "true");
 
-        var main2ModalDiv = document.createElement("div");
-        main2ModalDiv.className = "modal-dialog"; 
-        main2ModalDiv.setAttribute("role", "document");
+            var main2ModalDiv = document.createElement("div");
+            main2ModalDiv.className = "modal-dialog"; 
+            main2ModalDiv.setAttribute("role", "document");
 
-        var contentDiv = document.createElement('div');
-        contentDiv.className = 'modal-content';
+                var contentDiv = document.createElement('div');
+                contentDiv.className = 'modal-content';
 
-        var headerDiv = document.createElement('div');
+                var headerDiv = document.createElement('div');
+                headerDiv.className = 'modal-header';
+
+                var modalTitle = document.createElement('h5');
+                modalTitle.className = 'modal-title';
+                modalTitle.setAttribute('id', 'exampleModalLongTitle');
+                modalTitle.innerText = storeItem.name;
+
+                var xButton = document.createElement('button');
+                xButton.setAttribute('type','button');
+                xButton.setAttribute('class','close');
+                xButton.setAttribute('data-dismiss','modal');
+                xButton.setAttribute('aria-label','Close');
+                    var span = document.createElement('span');
+                    span.setAttribute('aria-hidden', 'true')
+                    span.innerText = "x";
+
+            var modalBody = document.createElement('div');
+            modalBody.className = 'modal-body';
+            modalBody.innerText = storeItem.description;
+
+            var img = document.createElement('img');
+            img.className = 'card-img';
+            img.setAttribute('src', storeItem.image);
+
+            var hr0 = document.createElement('hr');
+
+            var price = document.createElement('h4')
+            price.innerHTML = "Price: " + storeItem.price;
+
+            var onstoke = document.createElement('h4');
+            onstoke.innerText = "On stoke: " + storeItem.qty;
+
+
         
-        
+        hiddenDivOutput.appendChild(mainModalDiv);
+        mainModalDiv.appendChild(main2ModalDiv);
+        main2ModalDiv.appendChild(contentDiv);
+        contentDiv.appendChild(headerDiv);
+        headerDiv.appendChild(modalTitle);
+        headerDiv.appendChild(xButton);
+        xButton.appendChild(span);
+        contentDiv.appendChild(modalBody);
+        contentDiv.appendChild(img);
     }
 }
+
 
 // dark mode function
 function modeChange(){
