@@ -588,6 +588,14 @@ function modeChange(){
             btn[0].setAttribute("class", "btn btn-outline-light");
         }
 
+        var cardText = document.getElementsByClassName("card-text");
+        for(var i = 0; i < dlina; i++)
+        {
+            cardText[i].style.color = "#FFF";
+        }
+
+        
+
     } else {
         document.getElementById("storeName").style.color="black";
         document.body.style.background = "#FFF";
@@ -617,6 +625,12 @@ function modeChange(){
         for(var i = 0; i<dlina; i++)
         {
             btn[0].setAttribute("class", "btn btn-outline-dark");
+        }
+
+        var cardText = document.getElementsByClassName("card-text");
+        for(var i = 0; i < dlina; i++)
+        {
+            cardText[i].style.color = "black";
         }
 
     }
