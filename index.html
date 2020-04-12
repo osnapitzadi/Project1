@@ -18,7 +18,7 @@
                 <div class="col">
                     <h1 id="storeName">Online Store</h1>
                 </div>
-                <div class = "col-md-auto">
+                <div class = "col-sm-auto">
                     <div class="custom-control custom-switch" onchange="modeChange()">
                         <input type="checkbox" class="custom-control-input" id="customSwitch1">
                         <label class="custom-control-label" for="customSwitch1" id = "modeLabel">Night mode</label>
@@ -62,45 +62,34 @@
             <div id="hiddenModals"></div>
         </main>
         <footer>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong20">
-                Launch demo modal
-            </button>
-            
-            <!-- Modal -->
-
-            <div class="modal fade" id="exampleModalLong20" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Nike Pro</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <img class="card-img" src="src/1.png" alt="nike">    
-                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita quasi repellendus odit fugiat ex praesentium ad, corrupti ab molestiae recusandae asperiores quas corporis natus pariatur quos! Ab illo incidunt a.
-                         
-                         <hr>
-                         <h4><strong>Price: $199</strong></h4>
-                         <h4><strong>On Stoke: 10</strong></h4>
-                         <hr>
-                        Reviews: 
-                        <ul>
-                            <li>review 1</li>
-                            <li>review 2</li>
-                            <li>review 3</li>
-                        </ul>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Add to Cart</button>
-                        </div>
+            <div class="container">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#cartModal">
+                  View Cart
+                </button>  
+              </div>
+              
+              <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header border-bottom-0">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        Your Shopping Cart
+                      </h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
                     </div>
+                    <div class="modal-body row">
+                        <div class="col-sm"></div>
+                    <input type="text" id='qnt'>
+                    </div>
+                    <div class="modal-footer border-top-0 d-flex justify-content-between">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-success">Checkout</button>
+                    </div>
+                  </div>
                 </div>
-            </div>
+              </div>
         </footer>
     </div>
     
