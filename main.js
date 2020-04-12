@@ -71,7 +71,31 @@ function init() {
     currentTime();
     displayStoreItems(0);
     displayCartItems();
-    displayStoreItemsDetails() 
+    displayStoreItemsDetails();
+    bootstrapFeatures();
+}
+
+function bootstrapFeatures(){ //JQuery functions
+
+    //   $(function () {
+    //     $('[data-toggle="popover"]').popover()
+    //     })    
+
+
+    //ACTIVATES AND CREATES POPOVERS WITH "DIV" FROM BUTTON "DATA-DIV"
+
+    $('[data-toggle="popover"]').popover({ //black magic
+        html: true,
+        trigger: 'click',
+        placement: 'top',
+        content: function () {
+                //var content = $(this).attr("data-popover-content");
+                // return $(content).children(".popover_body").html();
+                //return $(".popoverLol");
+                return $($(this).data('div'));           
+            }
+      });
+
 }
 
 function displayStoreItems(typeCategory){
@@ -129,14 +153,27 @@ function displayStoreItems(typeCategory){
             detailsButton.setAttribute("id", "infoBtn");
             detailsButton.innerHTML = "More Info";
 
+            //CREATE BUTTON 
             var addToCard = document.createElement("button");
-            addToCard.className = "btn btn-outline-dark";
-            addToCard.innerText = "Add to card";
-            addToCard.setAttribute("id", "cartBtn");
-            addToCard.setAttribute("onClick", "addToCart()");
-
+            addToCard.setAttribute("type", "button");
+            addToCard.setAttribute("class", "btn btn-outline-dark");
+            addToCard.setAttribute("data-toggle", "popover");
+            addToCard.setAttribute("title", "How many?");
+            addToCard.setAttribute("data-div", `
+                <input type="text" value="0" id="inpQnt"/>
+                <button type="button" class="btn btn-success" id="btnAdd" onclick="addItemToCart()">Add</button>
+            
+            `) //Black Magic
+            addToCard.setAttribute("id","cartBtn");
+            addToCard.innerText = "Add to cart";
             
 
+            // $("#btnLess").click(function(){
+            //     console.log("minus");
+            //     $("#inpQnt").text("3");
+            // });
+            
+            
             //child parent stucture
             divOutput.appendChild(tempCard);
             tempCard.appendChild(cardImg);
@@ -150,10 +187,18 @@ function displayStoreItems(typeCategory){
             cardBody2.appendChild(detailsButton);
             tempCard.appendChild(cardBody2);
         }
+        
     }
 
-
+    
     return
+
+}
+
+function addItemToCart(){
+
+    
+
 }
 
 function displayStoreItemsDetails() {
@@ -401,5 +446,8 @@ function displayCartItems() {
 }
 
 function addToCart(){
-    document.getElementById("cartBtn")
+    var item = document.getElementById("cartBtn");
+    var itemQuantity = document.getElementById("qnt");
+    console.log("Hi you");
+    aCart.push(new cartItems(item.id, item.price, itemQuantity, item.shippingPrice));
 }
