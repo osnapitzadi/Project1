@@ -36,7 +36,7 @@ and (max-device-width : 1024px) {
     
     #storeItems img{
         height: 200px;
-        width: 100%;
+        width: 180px;
     }
 
 }
