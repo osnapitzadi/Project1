@@ -87,6 +87,77 @@ function displayStoreItems(categoryID) {
             //tempCard.className = "card text-black bg-light col-lg-auto"; // the reason why I give class name is bootstrap library;
             tempCard.style = "width: 18rem;";
             tempCard.setAttribute("id", "card");
+            tempCard.setAttribute("data-toggle","modal");
+            tempCard.setAttribute("data-target","#exampleModalLong"+index);
+
+            // card 
+            var cardImg = document.createElement("IMG");
+            cardImg.className = "card-img-top";
+            cardImg.setAttribute('src', tempItem.image);
+
+            // body div
+            var cardBody = document.createElement("div");
+            cardBody.className = "card-body";
+
+            var cardTitle = document.createElement("h5");
+            cardTitle.className = "card-title";
+            cardTitle.innerText = tempItem.name;
+
+            var cardText = document.createElement("p");
+            cardText.className = "card-text";
+            cardText.innerText = tempItem.description;
+
+            var listPS = document.createElement("ul");
+            listPS.className = "list-group " + "list-group-flush";
+            var price = document.createElement("li");
+
+            price.className = "list-group-item";
+            price.innerText = "Price: $" + tempItem.price;
+
+            var stoke = document.createElement("li");
+            stoke.className = "list-group-item";
+            stoke.innerText = "On Stoke: " + tempItem.qty;
+
+            var cardBody2 = document.createElement("div");
+            cardBody2.className = "card-body container";
+
+            var detailsButton = document.createElement("button");
+            detailsButton.className = "btn btn-outline-secondary";
+            detailsButton.setAttribute("type","button");
+            detailsButton.setAttribute("data-toggle","modal");
+            detailsButton.setAttribute("data-target","#exampleModalLong"+index);
+            detailsButton.setAttribute("id", "infoBtn");
+            detailsButton.innerHTML = "More Info";
+
+            var addToCard = document.createElement("button");
+            addToCard.className = "btn btn-outline-dark";
+            addToCard.innerText = "Add to card";
+
+            
+
+            //child parent stucture
+            divOutput.appendChild(tempCard);
+            tempCard.appendChild(cardImg);
+            tempCard.appendChild(cardBody);
+            cardBody.appendChild(cardTitle);
+            cardBody.appendChild(cardText);
+            tempCard.appendChild(listPS);
+            listPS.appendChild(price);
+            listPS.appendChild(stoke);
+            cardBody2.appendChild(addToCard);
+            cardBody2.appendChild(detailsButton);
+            tempCard.appendChild(cardBody2);
+
+
+        } else if (categoryID == 1 && tempItem.category === "Shoes") {
+            //main div
+            var tempCard = document.createElement("div");
+            tempCard.className = "card col-lg-auto"; // the reason why I give class name is bootstrap library;
+            //tempCard.className = "card text-black bg-light col-lg-auto"; // the reason why I give class name is bootstrap library;
+            tempCard.style = "width: 18rem;";
+            tempCard.setAttribute("id", "card");
+            tempCard.setAttribute("data-toggle","modal");
+            tempCard.setAttribute("data-target","#exampleModalLong"+index);
 
             // card 
             var cardImg = document.createElement("IMG");
@@ -221,6 +292,75 @@ function displayStoreItems(categoryID) {
             //tempCard.className = "card text-black bg-light col-lg-auto"; // the reason why I give class name is bootstrap library;
             tempCard.style = "width: 18rem;";
             tempCard.setAttribute("id", "card");
+            tempCard.setAttribute("data-toggle","modal");
+            tempCard.setAttribute("data-target","#exampleModalLong"+index);
+
+            // card 
+            var cardImg = document.createElement("IMG");
+            cardImg.className = "card-img-top";
+            cardImg.setAttribute('src', tempItem.image);
+
+            // body div
+            var cardBody = document.createElement("div");
+            cardBody.className = "card-body";
+
+            var cardTitle = document.createElement("h5");
+            cardTitle.className = "card-title";
+            cardTitle.innerText = tempItem.name;
+
+            var cardText = document.createElement("p");
+            cardText.className = "card-text";
+            cardText.innerText = tempItem.description;
+
+            var listPS = document.createElement("ul");
+            listPS.className = "list-group " + "list-group-flush";
+            var price = document.createElement("li");
+
+            price.className = "list-group-item";
+            price.innerText = "Price: $" + tempItem.price;
+
+            var stoke = document.createElement("li");
+            stoke.className = "list-group-item";
+            stoke.innerText = "On Stoke: " + tempItem.qty;
+
+            var cardBody2 = document.createElement("div");
+            cardBody2.className = "card-body container";
+
+            var detailsButton = document.createElement("button");
+            detailsButton.className = "btn btn-outline-secondary";
+            detailsButton.setAttribute("type","button");
+            detailsButton.setAttribute("data-toggle","modal");
+            detailsButton.setAttribute("data-target","#exampleModalLong"+index);
+            detailsButton.setAttribute("id", "infoBtn");
+            detailsButton.innerHTML = "More Info";
+
+            var addToCard = document.createElement("button");
+            addToCard.className = "btn btn-outline-dark";
+            addToCard.innerText = "Add to card";
+
+            
+
+            //child parent stucture
+            divOutput.appendChild(tempCard);
+            tempCard.appendChild(cardImg);
+            tempCard.appendChild(cardBody);
+            cardBody.appendChild(cardTitle);
+            cardBody.appendChild(cardText);
+            tempCard.appendChild(listPS);
+            listPS.appendChild(price);
+            listPS.appendChild(stoke);
+            cardBody2.appendChild(addToCard);
+            cardBody2.appendChild(detailsButton);
+            tempCard.appendChild(cardBody2);
+
+
+        } else if (categoryID == 1 && tempItem.category === "Shoes") {
+            //main div
+            var tempCard = document.createElement("div");
+            tempCard.className = "card col-lg-auto"; // the reason why I give class name is bootstrap library;
+            //tempCard.className = "card text-black bg-light col-lg-auto"; // the reason why I give class name is bootstrap library;
+            tempCard.style = "width: 18rem;";
+            tempCard.setAttribute("id", "card");
 
             // card 
             var cardImg = document.createElement("IMG");
@@ -281,6 +421,75 @@ function displayStoreItems(categoryID) {
             tempCard.appendChild(cardBody2);
 
         } else if (categoryID == 3 && tempItem.category === "Jeans") {
+            //main div
+            var tempCard = document.createElement("div");
+            tempCard.className = "card col-lg-auto"; // the reason why I give class name is bootstrap library;
+            //tempCard.className = "card text-black bg-light col-lg-auto"; // the reason why I give class name is bootstrap library;
+            tempCard.style = "width: 18rem;";
+            tempCard.setAttribute("id", "card");
+            tempCard.setAttribute("data-toggle","modal");
+            tempCard.setAttribute("data-target","#exampleModalLong"+index);
+
+            // card 
+            var cardImg = document.createElement("IMG");
+            cardImg.className = "card-img-top";
+            cardImg.setAttribute('src', tempItem.image);
+
+            // body div
+            var cardBody = document.createElement("div");
+            cardBody.className = "card-body";
+
+            var cardTitle = document.createElement("h5");
+            cardTitle.className = "card-title";
+            cardTitle.innerText = tempItem.name;
+
+            var cardText = document.createElement("p");
+            cardText.className = "card-text";
+            cardText.innerText = tempItem.description;
+
+            var listPS = document.createElement("ul");
+            listPS.className = "list-group " + "list-group-flush";
+            var price = document.createElement("li");
+
+            price.className = "list-group-item";
+            price.innerText = "Price: $" + tempItem.price;
+
+            var stoke = document.createElement("li");
+            stoke.className = "list-group-item";
+            stoke.innerText = "On Stoke: " + tempItem.qty;
+
+            var cardBody2 = document.createElement("div");
+            cardBody2.className = "card-body container";
+
+            var detailsButton = document.createElement("button");
+            detailsButton.className = "btn btn-outline-secondary";
+            detailsButton.setAttribute("type","button");
+            detailsButton.setAttribute("data-toggle","modal");
+            detailsButton.setAttribute("data-target","#exampleModalLong"+index);
+            detailsButton.setAttribute("id", "infoBtn");
+            detailsButton.innerHTML = "More Info";
+
+            var addToCard = document.createElement("button");
+            addToCard.className = "btn btn-outline-dark";
+            addToCard.innerText = "Add to card";
+
+            
+
+            //child parent stucture
+            divOutput.appendChild(tempCard);
+            tempCard.appendChild(cardImg);
+            tempCard.appendChild(cardBody);
+            cardBody.appendChild(cardTitle);
+            cardBody.appendChild(cardText);
+            tempCard.appendChild(listPS);
+            listPS.appendChild(price);
+            listPS.appendChild(stoke);
+            cardBody2.appendChild(addToCard);
+            cardBody2.appendChild(detailsButton);
+            tempCard.appendChild(cardBody2);
+
+
+        } else if (categoryID == 1 && tempItem.category === "Shoes") {
             //main div
             var tempCard = document.createElement("div");
             tempCard.className = "card col-lg-auto"; // the reason why I give class name is bootstrap library;
@@ -353,6 +562,8 @@ function displayStoreItems(categoryID) {
             //tempCard.className = "card text-black bg-light col-lg-auto"; // the reason why I give class name is bootstrap library;
             tempCard.style = "width: 18rem;";
             tempCard.setAttribute("id", "card");
+            tempCard.setAttribute("data-toggle","modal");
+            tempCard.setAttribute("data-target","#exampleModalLong"+index);
 
             // card 
             var cardImg = document.createElement("IMG");
@@ -383,7 +594,7 @@ function displayStoreItems(categoryID) {
             stoke.innerText = "On Stoke: " + tempItem.qty;
 
             var cardBody2 = document.createElement("div");
-            cardBody2.className = "card-body";
+            cardBody2.className = "card-body container";
 
             var detailsButton = document.createElement("button");
             detailsButton.className = "btn btn-outline-secondary";
@@ -419,6 +630,8 @@ function displayStoreItems(categoryID) {
             //tempCard.className = "card text-black bg-light col-lg-auto"; // the reason why I give class name is bootstrap library;
             tempCard.style = "width: 18rem;";
             tempCard.setAttribute("id", "card");
+            tempCard.setAttribute("data-toggle","modal");
+            tempCard.setAttribute("data-target","#exampleModalLong"+index);
 
             // card 
             var cardImg = document.createElement("IMG");
@@ -449,7 +662,7 @@ function displayStoreItems(categoryID) {
             stoke.innerText = "On Stoke: " + tempItem.qty;
 
             var cardBody2 = document.createElement("div");
-            cardBody2.className = "card-body";
+            cardBody2.className = "card-body container";
 
             var detailsButton = document.createElement("button");
             detailsButton.className = "btn btn-outline-secondary";
