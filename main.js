@@ -199,6 +199,7 @@ function displayStoreItemsDetails() {
 
             var modalBody = document.createElement('div');
             modalBody.className = 'modal-body';
+            
             modalBody.innerText = storeItem.description;
 
             var img = document.createElement('img');
@@ -208,13 +209,45 @@ function displayStoreItemsDetails() {
             var hr0 = document.createElement('hr');
 
             var price = document.createElement('h4')
-            price.innerHTML = "Price: " + storeItem.price;
+            price.innerHTML = "Price: $" + storeItem.price;
 
             var onstoke = document.createElement('h4');
             onstoke.innerText = "On stoke: " + storeItem.qty;
 
+            var maxPerCstmr = document.createElement('h4');
+            maxPerCstmr.innerText = "Max per customer: " + storeItem.maxPerCustomer;
 
-        
+            // var category = document.createElement('h4');
+            // category.innerText = storeItem.category;
+
+            var reviewsUl = document.createElement('ul');
+            var reviewsLi1 = document.createElement('li');
+            reviewsLi1.innerText = aStore[index].reviews[0][0] + " : " + aStore[index].reviews[0][1];
+            var reviewsLi2 = document.createElement('li');
+            reviewsLi2.innerText = aStore[index].reviews[1][0] + " : " + aStore[index].reviews[1][1];
+            var reviewsLi3 = document.createElement('li');
+            reviewsLi3.innerText = aStore[index].reviews[2][0] + " : " + aStore[index].reviews[2][1];
+
+            var hr1 = document.createElement('hr');
+
+            var modalFooter = document.createElement('div');
+            modalFooter.className = "modal-footer";
+
+                var footerBtn = document.createElement('button');
+                footerBtn.setAttribute('type', 'button');
+                footerBtn.className = "btn btn-secondary";
+                footerBtn.setAttribute("data-dismiss", "modal");
+                footerBtn.innerText = "Close";
+
+                var footerBtnAddToCart = document.createElement('button');
+                footerBtnAddToCart.setAttribute('type', 'button');
+                footerBtnAddToCart.className = 'btn btn-primary';
+                footerBtnAddToCart.innerText = "Add to Cart";
+                footerBtnAddToCart.setAttribute('onclick', 'addToCart()');
+
+                
+
+
         hiddenDivOutput.appendChild(mainModalDiv);
         mainModalDiv.appendChild(main2ModalDiv);
         main2ModalDiv.appendChild(contentDiv);
@@ -223,7 +256,21 @@ function displayStoreItemsDetails() {
         headerDiv.appendChild(xButton);
         xButton.appendChild(span);
         contentDiv.appendChild(modalBody);
-        contentDiv.appendChild(img);
+        modalBody.appendChild(img);
+        modalBody.appendChild(hr0);
+        modalBody.appendChild(price);
+        modalBody.appendChild(onstoke);
+        modalBody.appendChild(maxPerCstmr);
+        modalBody.appendChild(hr1);
+        modalBody.appendChild(reviewsUl);
+        reviewsUl.appendChild(reviewsLi1);
+        reviewsUl.appendChild(reviewsLi2);
+        reviewsUl.appendChild(reviewsLi3);
+        contentDiv.appendChild(modalFooter);
+        modalFooter.appendChild(footerBtn);
+        modalFooter.appendChild(footerBtnAddToCart);
+        
+
     }
 }
 
