@@ -18,6 +18,16 @@
                 <div class="col">
                     <h1 id="storeName">Online Store</h1>
                 </div>
+                <div class="dropdown">
+                    <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      🇨🇦
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" id='cad' href="#" onclick="changeToCAD();">🇨🇦CAD</a>
+                      <a class="dropdown-item" id='usd' href="#" onclick="changeToUSD();">🇺🇸USD</a>
+                      <a class="dropdown-item" id="kzt" href="#" onclick="changeToKZT();">🇰🇿KZT</a>
+                    </div>
+                </div>
                 <div class = "col-sm-auto">
                     <div class="custom-control custom-switch" onchange="modeChange()">
                         <input type="checkbox" class="custom-control-input" id="customSwitch1">
@@ -40,11 +50,11 @@
                         Category
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" id="category1" href="#" onclick="displayStoreItems(1)">Shoes</a>
-                        <a class="dropdown-item" id="category2" href="#" onclick="displayStoreItems(2)">T-Shirt</a>
-                        <a class="dropdown-item" id="category3" href="#" onclick="displayStoreItems(3)">Jeans</a>
-                        <a class="dropdown-item" id="category4" href="#" onclick="displayStoreItems(4)">Hoodie</a>
-                        <a class="dropdown-item" id="category5" href="#" onclick="displayStoreItems(5)">Socks</a>
+                        <a class="dropdown-item" id="category1" href="#" onclick="displayStoreItems(1);categoryChange(1);">Shoes</a>
+                        <a class="dropdown-item" id="category2" href="#" onclick="displayStoreItems(2);categoryChange(2);">T-Shirt</a>
+                        <a class="dropdown-item" id="category3" href="#" onclick="displayStoreItems(3);categoryChange(3);">Jeans</a>
+                        <a class="dropdown-item" id="category4" href="#" onclick="displayStoreItems(4);categoryChange(4);">Hoodie</a>
+                        <a class="dropdown-item" id="category5" href="#" onclick="displayStoreItems(5);categoryChange(5);">Socks</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#" onclick="displayStoreItems(0)">All Categories</a>
                     </div>
@@ -90,6 +100,7 @@
                   </div>
                 </div>
               </div>
+              <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
         </footer>
     </div>
     
