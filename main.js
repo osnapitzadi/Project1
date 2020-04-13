@@ -1,6 +1,10 @@
 // global variables
 let aStore = [];
 let aCart = [];
+var CADprice = [];
+var USDprice = [];
+var KZTprice = [];
+var typeCategory = 0;
 
 // store items constructor 
 function items (id, name, price, qty, maxPerCustomer, category, shippingPrice, reviews, description, image) {
@@ -27,7 +31,7 @@ function cartItems (id, price, qty, shippingPrice){
 };
 
 function currentTime() {
-    var date = new Date(); /* creating object of Date class */
+    var date = new Date(); // creating object of Date 
     var hour = date.getHours();
     var min = date.getMinutes();
     var sec = date.getSeconds();
@@ -37,13 +41,13 @@ function currentTime() {
     hour = updateTime(hour);
     min = updateTime(min);
     sec = updateTime(sec);
-    document.getElementById("time").innerText = month + "/" + day + "/" + year + "/" + " " + hour + " : " + min + " : " + sec; /* adding time to the div */
-      var t = setTimeout(function(){ currentTime() }, 1000); /* setting timer */
+    document.getElementById("time").innerText = month + "/" + day + "/" + year + "/" + " " + hour + " : " + min + " : " + sec; // adding time to the div
+      var t = setTimeout(function(){ currentTime() }, 1000); // setting timer
   }
-  
+  // updating time function
   function updateTime(k) {
     if (k < 10) {
-      return "0" + k;
+      return "0" + k;// to avoid for example 11:3:1 and print 11:03:01 
     }
     else {
       return k;
@@ -68,8 +72,17 @@ function init() {
     aStore.push(new items (14, "Black Socks", 19.99, 100, 20, 5, 4.99,  getRandowReviews(), "Phasellus leo velit, tincidunt et mollis vel, dapibus ut mi.",  "src/14.png"));
     aStore.push(new items (15, "Amazon Socks", 9.99, 100, 20, 5, 4.99,  getRandowReviews(), " Donec vitae nunc vitae ante pretium pulvinar vitae et lacus. Fusce laoreet tristique mi, pretium auctor risus aliquam sed. ",  "src/15.png"));
 
+    // for loop to create currencies global arrays w/ prices
+    for (let index = 0; index < aStore.length; index++) {
+        // const tempItem = aStore[index];
+        const tempPrice = aStore[index]["price"];
+        CADprice.push(tempPrice);
+        USDprice.push((tempPrice * 0.72).toFixed(2));
+        KZTprice.push((tempPrice * 300).toFixed(2));
+    }
+
     currentTime();
-    displayStoreItems(0);
+    displayStoreItems(typeCategory); 
     displayCartItems();
     displayStoreItemsDetails();
     bootstrapFeatures();
@@ -192,7 +205,6 @@ function displayStoreItems(typeCategory){
         
     }
 
-    
     return
 
 }
@@ -213,12 +225,17 @@ function addItemToCart(){
 
 }
 
+// bug fixing function 
+function categoryChange(id) {
+    typeCategory = id;
+    displayStoreItems(id); 
+}
+
+// function which creates hidden element (modals (bootstrap)) which related for each store item to show details
 function displayStoreItemsDetails() {
     
     var hiddenDivOutput = document.getElementById("hiddenModals");
  
-    // console.log(aStore)
-
     for (let index = 0; index < aStore.length; index++) {
         const storeItem = aStore[index];
 
@@ -230,77 +247,107 @@ function displayStoreItemsDetails() {
         mainModalDiv.setAttribute("aria-labelledby", "exampleModalLongTitle");
         mainModalDiv.setAttribute("aria-hidden", "true");
 
-            var main2ModalDiv = document.createElement("div");
-            main2ModalDiv.className = "modal-dialog"; 
-            main2ModalDiv.setAttribute("role", "document");
+        var main2ModalDiv = document.createElement("div");
+        main2ModalDiv.className = "modal-dialog"; 
+        main2ModalDiv.setAttribute("role", "document");
 
-                var contentDiv = document.createElement('div');
-                contentDiv.className = 'modal-content';
+        var contentDiv = document.createElement('div');
+        contentDiv.className = 'modal-content';
 
-                var headerDiv = document.createElement('div');
-                headerDiv.className = 'modal-header';
+        var headerDiv = document.createElement('div');
+        headerDiv.className = 'modal-header';
 
-                var modalTitle = document.createElement('h5');
-                modalTitle.className = 'modal-title';
-                modalTitle.setAttribute('id', 'exampleModalLongTitle');
-                modalTitle.innerText = storeItem.name;
+        var modalTitle = document.createElement('h5');
+        modalTitle.className = 'modal-title';
+        modalTitle.setAttribute('id', 'exampleModalLongTitle');
+        modalTitle.innerText = storeItem.name;
 
-                var xButton = document.createElement('button');
-                xButton.setAttribute('type','button');
-                xButton.setAttribute('class','close');
-                xButton.setAttribute('data-dismiss','modal');
-                xButton.setAttribute('aria-label','Close');
-                    var span = document.createElement('span');
-                    span.setAttribute('aria-hidden', 'true')
-                    span.innerText = "x";
+        var xButton = document.createElement('button');
+        xButton.setAttribute('type','button');
+        xButton.setAttribute('class','close');
+        xButton.setAttribute('data-dismiss','modal');
+        xButton.setAttribute('aria-label','Close');
 
-            var modalBody = document.createElement('div');
-            modalBody.className = 'modal-body';
-            
-            modalBody.innerText = storeItem.description;
+        var span = document.createElement('span');
+        span.setAttribute('aria-hidden', 'true')
+        span.innerText = "x";
 
-            var img = document.createElement('img');
-            img.className = 'card-img';
-            img.setAttribute('src', storeItem.image);
+        var modalBody = document.createElement('div');
+        modalBody.className = 'modal-body';
+        
+        modalBody.innerText = storeItem.description;
 
-            var hr0 = document.createElement('hr');
+        var img = document.createElement('img');
+        img.className = 'card-img';
+        img.setAttribute('src', storeItem.image);
 
-            var price = document.createElement('h4')
-            price.innerHTML = "Price: $" + storeItem.price;
+        var hr0 = document.createElement('hr');
 
-            var onstoke = document.createElement('h4');
-            onstoke.innerText = "On stoke: " + storeItem.qty;
+        var price = document.createElement('h4')
+        price.innerHTML = "Price: $" + storeItem.price;
 
-            var maxPerCstmr = document.createElement('h4');
-            maxPerCstmr.innerText = "Max per customer: " + storeItem.maxPerCustomer;
+        var onstoke = document.createElement('h4');
+        onstoke.innerText = "On stoke: " + storeItem.qty;
 
-            // var category = document.createElement('h4');
-            // category.innerText = storeItem.category;
+        var maxPerCstmr = document.createElement('h4');
+        maxPerCstmr.innerText = "Max per customer: " + storeItem.maxPerCustomer;
 
-            var reviewsUl = document.createElement('ul');
-            var reviewsLi1 = document.createElement('li');
-            reviewsLi1.innerText = aStore[index].reviews[0][0] + " : " + aStore[index].reviews[0][1];
-            var reviewsLi2 = document.createElement('li');
-            reviewsLi2.innerText = aStore[index].reviews[1][0] + " : " + aStore[index].reviews[1][1];
-            var reviewsLi3 = document.createElement('li');
-            reviewsLi3.innerText = aStore[index].reviews[2][0] + " : " + aStore[index].reviews[2][1];
+        // switch case for categories because in items object categories are int
+        switch (storeItem.category){
+            case 1:
+                var category = document.createElement('h4');
+                category.innerText = "Category: Shoes";
+                break;
 
-            var hr1 = document.createElement('hr');
+            case 2:
+                var category = document.createElement('h4');
+                category.innerText = "Category: T-Shirt";
+                break;
 
-            var modalFooter = document.createElement('div');
-            modalFooter.className = "modal-footer";
+            case 3:
+                var category = document.createElement('h4');
+                category.innerText = "Category: Jeans";
+                break;  
 
-                var footerBtn = document.createElement('button');
-                footerBtn.setAttribute('type', 'button');
-                footerBtn.className = "btn btn-secondary";
-                footerBtn.setAttribute("data-dismiss", "modal");
-                footerBtn.innerText = "Close";
+            case 4:
+                var category = document.createElement('h4');
+                category.innerText = "Category: Hoodie";
+                break;
 
-                var footerBtnAddToCart = document.createElement('button');
-                footerBtnAddToCart.setAttribute('type', 'button');
-                footerBtnAddToCart.className = 'btn btn-primary';
-                footerBtnAddToCart.innerText = "Add to Cart";
-                footerBtnAddToCart.setAttribute('onclick', 'addToCart()');
+            case 5:
+                var category = document.createElement('h4');
+                category.innerText = "Category: Socks";
+                break;
+            default:
+                var category = document.createElement('h4');
+                category.innerText = "Category: Unknows";
+        }
+
+        // reviews in modal 
+        var reviewsUl = document.createElement('ul');
+        var reviewsLi1 = document.createElement('li');
+        reviewsLi1.innerText = aStore[index].reviews[0][0] + ": " + aStore[index].reviews[0][1];
+        var reviewsLi2 = document.createElement('li');
+        reviewsLi2.innerText = aStore[index].reviews[1][0] + ": " + aStore[index].reviews[1][1];
+        var reviewsLi3 = document.createElement('li');
+        reviewsLi3.innerText = aStore[index].reviews[2][0] + ": " + aStore[index].reviews[2][1];
+
+        var hr1 = document.createElement('hr');
+
+        var modalFooter = document.createElement('div');
+        modalFooter.className = "modal-footer";
+
+        var footerBtn = document.createElement('button');
+        footerBtn.setAttribute('type', 'button');
+        footerBtn.className = "btn btn-secondary";
+        footerBtn.setAttribute("data-dismiss", "modal");
+        footerBtn.innerText = "Close";
+
+        var footerBtnAddToCart = document.createElement('button');
+        footerBtnAddToCart.setAttribute('type', 'button');
+        footerBtnAddToCart.className = 'btn btn-primary';
+        footerBtnAddToCart.innerText = "Add to Cart";
+        footerBtnAddToCart.setAttribute('onclick', 'addToCart()');
 
                 
 
@@ -318,6 +365,7 @@ function displayStoreItemsDetails() {
         modalBody.appendChild(price);
         modalBody.appendChild(onstoke);
         modalBody.appendChild(maxPerCstmr);
+        modalBody.appendChild(category);
         modalBody.appendChild(hr1);
         modalBody.appendChild(reviewsUl);
         reviewsUl.appendChild(reviewsLi1);
@@ -439,11 +487,11 @@ function randomNumber(max){
     return Math.round(Math.random() * (max - 0) + 0);
 }
 
-
+// function to create array of review where [0] name and [1] comment
 function getRandowReviews() {
-    var names = ["A****", "B****", "C****", "D****", "F****", "T****", "E****", "S****", "G****", "R****", "H****", "J****", "L****"]
+    var names = ["Mike","Nick","Slagathor","Rick","Astley","Rock","JW","Pronax", "Adil", "Emily", 'Aisha', 'Kays', 'Jim']; 
     var reviews = ["very good", "satisfied", "I don't like it", "Shipping was very long", "excellent quality", "I'll buy more!!!!!!", "nah", "****", "5 stars"];
-    var reviewObject = [[names[randomNumber(names.length)],reviews[randomNumber(reviews.length - 1)]],[names[randomNumber(names.length)],reviews[randomNumber(reviews.length - 1)]],[names[randomNumber(names.length)],reviews[randomNumber(reviews.length)]]];
+    var reviewObject = [[names[randomNumber(names.length - 1)],reviews[randomNumber(reviews.length - 1)]],[names[randomNumber(names.length - 1)],reviews[randomNumber(reviews.length - 1)]],[names[randomNumber(names.length - 1)],reviews[randomNumber(reviews.length - 1)]]];
     return reviewObject;
 }
 
@@ -458,8 +506,60 @@ function displayCartItems() {
 }
 
 function addToCart(){
+
     var item = document.getElementById("cartBtn");
     var itemQuantity = document.getElementById("qnt");
     console.log("Hi you");
     aCart.push(new cartItems(item.id, item.price, itemQuantity, item.shippingPrice));
+
+}
+
+
+// function setAllCurrenciesPrices() {
+//     // var currentCurrency = document.getElementById("currentCurrency");
+//     for (let index = 0; index < aStore.length; index++) {
+//         // const tempItem = aStore[index];
+//         const tempPrice = aStore[index]["price"];
+//         CADprice.push(tempPrice);
+//         USDprice.push((tempPrice * 0.72).toFixed(2));
+//         KZTprice.push((tempPrice * 300).toFixed(2));
+//     }
+// }
+// setAllCurrenciesPrices();
+
+
+function changeToCAD() {
+    $(document).ready(function(){
+        $('#cad').mouseleave(function() {
+            $("#dropdownMenuButton1").text('🇨🇦');
+        })
+    });
+    for (let index = 0; index < aStore.length; index++) {
+        aStore[index].price = parseFloat(CADprice[index]);
+    }
+    displayStoreItems(typeCategory);
+}
+
+function changeToUSD() {
+    $(document).ready(function(){
+        $('#usd').mouseleave(function() {
+            $("#dropdownMenuButton1").text('🇺🇸');
+        })
+    });
+    for (let index = 0; index < aStore.length; index++) {
+        aStore[index].price = parseFloat(USDprice[index]);
+    }
+    displayStoreItems(typeCategory);
+}
+
+function changeToKZT () {
+    $(document).ready(function(){
+        $('#kzt').mouseleave(function() {
+            $("#dropdownMenuButton1").text('🇰🇿');
+        })
+    });
+    for (let index = 0; index < aStore.length; index++) {
+        aStore[index].price = parseFloat(KZTprice[index]);
+    }
+    displayStoreItems(typeCategory);
 }
