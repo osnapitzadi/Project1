@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel = "icon" type = "image/png" href = "src/logo.png">
     <meta charset="UTF-8">
@@ -11,99 +11,163 @@
     <script src="main.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
+
 <body onload="init()">
-    <div class="container">
-        <header>
-            <div class="row">
-                <div class="col">
-                    <h1 id="storeName">Online Store</h1>
-                </div>
-                <div class="dropdown">
-                    <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      🇨🇦
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" id='cad' href="#" onclick="changeToCAD();">🇨🇦CAD</a>
-                      <a class="dropdown-item" id='usd' href="#" onclick="changeToUSD();">🇺🇸USD</a>
-                      <a class="dropdown-item" id="kzt" href="#" onclick="changeToKZT();">🇰🇿KZT</a>
-                    </div>
-                </div>
-                <div class = "col-sm-auto">
-                    <div class="custom-control custom-switch" onchange="modeChange()">
-                        <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                        <label class="custom-control-label" for="customSwitch1" id = "modeLabel">Night mode</label>
-                    </div>
-                </div>
+  <div class="container"> 
+    <header>
+        <div class="row">
+            <div class="col">
+                <h1 id="storeName">Online Store</h1>
             </div>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light" id="mainNavbar">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-            
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Category
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" id="category1" href="#" onclick="displayStoreItems(1);categoryChange(1);">Shoes</a>
-                        <a class="dropdown-item" id="category2" href="#" onclick="displayStoreItems(2);categoryChange(2);">T-Shirt</a>
-                        <a class="dropdown-item" id="category3" href="#" onclick="displayStoreItems(3);categoryChange(3);">Jeans</a>
-                        <a class="dropdown-item" id="category4" href="#" onclick="displayStoreItems(4);categoryChange(4);">Hoodie</a>
-                        <a class="dropdown-item" id="category5" href="#" onclick="displayStoreItems(5);categoryChange(5);">Socks</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" onclick="displayStoreItems(0)">All Categories</a>
-                    </div>
-                    </li>
-                </ul>
-                    <div id="time">Time</div>
+            <!-- Currencies drowdown menu -->
+            <div class="dropdown">
+              <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                🇨🇦
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" id='cad' href="#" onclick="changeToCAD();">🇨🇦CAD</a>
+                <a class="dropdown-item" id='usd' href="#" onclick="changeToUSD();">🇺🇸USD</a>
+                <a class="dropdown-item" id="kzt" href="#" onclick="changeToKZT();">🇰🇿KZT</a>
+              </div>
+            </div>
+            <!-- Currencies drowdown menu -->
+
+            <!-- Dark mode togle -->
+            <div class = "col-sm-auto">
+              <div class="custom-control custom-switch" onchange="modeChange()">
+                <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                <label class="custom-control-label" for="customSwitch1" id = "modeLabel">Dark mode</label>
+              </div>
+            </div>
+            <!-- Dark mode togle -->
+        </div>
+        <!-- Nav bar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="mainNavbar">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Category
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" id="category1" href="#" onclick="displayStoreItems(1);categoryChange(1);">Shoes</a>
+                  <a class="dropdown-item" id="category2" href="#" onclick="displayStoreItems(2);categoryChange(2);">T-Shirt</a>
+                  <a class="dropdown-item" id="category3" href="#" onclick="displayStoreItems(3);categoryChange(3);">Jeans</a>
+                  <a class="dropdown-item" id="category4" href="#" onclick="displayStoreItems(4);categoryChange(4);">Hoodie</a>
+                  <a class="dropdown-item" id="category5" href="#" onclick="displayStoreItems(5);categoryChange(5);">Socks</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#" onclick="displayStoreItems(0)">All Categories</a>
                 </div>
-            </nav>
-        </header>
+              </li>
+              <li><a class="fb-ic">
+                <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+              </a>
+            </li>
+          </ul>
+          <div id="time">Time</div>
+        </div>
+      </nav>
+      <!-- Nav bar -->
+    </header>
+  </div>
+        <!-- Main -->
         <main class="container">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 d-flex justify-content-around" id="storeItems"></div>
-            <h2>Your Cart</h2>
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 d-flex justify-content-around" id="cartItems">
-            </div>
-            <div id="hiddenModals"></div>
+          <!-- Store Items -->
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 d-flex justify-content-around" id="storeItems"></div>
+          <!-- Store Items -->
+          <h2>Your Cart</h2>
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 d-flex justify-content-around" id="cartItems"></div>
+
+            <!-- The tag where all hidden modals will locate -->
+            <div id="hiddenModals"></div> 
         </main>
-        <footer>
-            <div class="container">
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#cartModal">
-                  View Cart
-                </button>  
-              </div>
-              
-              <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header border-bottom-0">
-                      <h5 class="modal-title" id="exampleModalLabel">
-                        Your Shopping Cart
-                      </h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body row">
-                        <div class="col-sm"></div>
-                    <input type="text" id='qnt'>
-                    </div>
-                    <div class="modal-footer border-top-0 d-flex justify-content-between">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-success">Checkout</button>
-                    </div>
-                  </div>
+        <!-- Main -->
+          <div class="container my-5 py-5 z-depth-1">
+            <!--Section: Content-->
+            <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
+
+              <style>
+              .map-container {
+              height: 230px;
+              position: relative;
+              }
+
+              .map-container iframe {
+              left: 0;
+              top: 0;
+              height: 100%;
+              width: 100%;
+              position: absolute;
+              }
+              </style>
+
+              <!--Grid row-->
+              <div class="row d-flex justify-content-center">
+
+                <!--Grid column-->
+                <div class="col-md-6 text-center">
+                  <h3 class="font-weight-bold">Contact Us</h3>
+                  <p class="text-muted">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id quam sapiente
+                    molestiae.</p>
                 </div>
+                <!--Grid column-->
               </div>
-              <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
-        </footer>
-    </div>
-    
+              <!--Grid row-->
+          
+              <!--Grid row-->
+              <div class="row">
+                <!--Grid column-->
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+          
+                  <!-- Material outline input -->
+                  <div class="md-form md-outline mt-3">
+                    <input type="email" id="form-email" class="form-control">
+                    <label for="form-email">E-mail</label>
+                  </div>
+          
+                  <!-- Material outline input -->
+                  <div class="md-form md-outline">
+                    <input type="text" id="form-subject" class="form-control">
+                    <label for="form-subject">Subject</label>
+                  </div>
+
+                  <!--Material textarea-->
+                  <div class="md-form md-outline mb-3">
+                    <textarea id="form-message" class="md-textarea form-control" rows="3"></textarea>
+                    <label for="form-message">How we can help?</label>
+                  </div>
+                  <button type="submit" class="btn btn-info btn-sm ml-0">Submit<i class="far fa-paper-plane ml-2"></i></button>
+                </div>
+                <!--Grid column-->
+          
+                <!--Grid column-->
+                <div class="col-lg-6 col-md-12 mb-0 mb-md-0">
+                    <!--Google map-->
+                    <div id="map-container-google-1" class="z-depth-1 map-container mb-4">
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3104.2043028320095!2d-81.24837711647756!3d42.98306904580823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sca!4v1586740829842!5m2!1sen!2sca" frameborder="0"
+                        style="border:0" allowfullscreen></iframe>
+                    </div>
+                    <!--Google Maps-->
+                    <p class="font-weight-bold">London, ON, Canada</p>
+                  </div>
+                  <!--Grid column-->
+              </div>
+              <!--Grid row-->
+            </section>
+            <!--Section: Content-->
+          </div>
+  <!-- Footer -->
+  <footer>
+
+  </footer>
+  <!-- Footer -->
 </body>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
