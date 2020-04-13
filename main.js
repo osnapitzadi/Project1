@@ -502,20 +502,6 @@ function addToCart(){
 
 }
 
-
-// function setAllCurrenciesPrices() {
-//     // var currentCurrency = document.getElementById("currentCurrency");
-//     for (let index = 0; index < aStore.length; index++) {
-//         // const tempItem = aStore[index];
-//         const tempPrice = aStore[index]["price"];
-//         CADprice.push(tempPrice);
-//         USDprice.push((tempPrice * 0.72).toFixed(2));
-//         KZTprice.push((tempPrice * 300).toFixed(2));
-//     }
-// }
-// setAllCurrenciesPrices();
-
-
 function changeToCAD() {
     $(document).ready(function(){
         $('#cad').mouseleave(function() {
