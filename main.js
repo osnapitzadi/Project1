@@ -166,6 +166,8 @@ function displayStoreItems(typeCategory){
             detailsButton.setAttribute("id", "infoBtn");
             detailsButton.innerHTML = "More Info";
 
+            var coolID = "btnAdd" + index;
+
             //CREATE BUTTON 
             var addToCard = document.createElement("button");
             addToCard.setAttribute("type", "button");
@@ -174,7 +176,7 @@ function displayStoreItems(typeCategory){
             addToCard.setAttribute("title", "How many?");
             addToCard.setAttribute("data-div", `
                 <input type="text" value="0" id="inpQnt"/>
-                <button type="button" class="btn btn-success" id="btnAdd" onclick="addItemToCart()">Add</button>
+                <button type="button" class="btn btn-success" id=${coolID} onclick="addItemToCart()">Add</button>
             
             `) //Black Magic
             addToCard.setAttribute("id","cartBtn");
@@ -209,7 +211,17 @@ function displayStoreItems(typeCategory){
 
 function addItemToCart(){
 
-    
+    var item = document.getElementById("cartBtn");
+    var itemQuantity = document.getElementById("inpQnt");
+    console.log("Hi you");
+
+    //get value from input
+        
+
+    //push ojbect to array
+
+
+    aCart.push(new cartItems(item.id, item.price, itemQuantity, item.shippingPrice));
 
 }
 
