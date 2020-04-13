@@ -402,13 +402,13 @@ function modeChange(){
         }
 
         var cardText = document.getElementsByClassName("card-text");
-        for(var i = 0; i < dlina; i++)
+        for(var i = 0; i < dlina - 1; i++)
         {
             cardText[i].style.color = "#FFF";
         }
 
         var infoBtn = document.getElementsByClassName("btn btn-outline-secondary");
-        for(var i=0;i<dlina;i++){
+        for(var i=0;i<dlina - 1;i++){
             infoBtn[0].setAttribute("class", "btn btn-outline-info");
         }
 
@@ -444,13 +444,13 @@ function modeChange(){
         }
 
         var cardText = document.getElementsByClassName("card-text");
-        for(var i = 0; i < dlina; i++)
+        for(var i = 0; i < dlina - 1; i++)
         {
-            cardText[i].style.color = "black";
+            cardText[i].style.color = "#000";
         }
 
         var infoBtn = document.getElementsByClassName("btn btn-outline-info");
-        for(var i=0;i<dlina;i++){
+        for(var i=0;i<dlina - 1;i++){
             infoBtn[0].setAttribute("class", "btn btn-outline-secondary");
         }
 
