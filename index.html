@@ -87,7 +87,7 @@
 
           <!-- Cart modal-->
 <div class="container">
-  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#cartModal">
+  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#cartModal" onclick="displayCartItems()">
     View Cart
   </button>  
 </div>
@@ -104,7 +104,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <table class="table table-image">
+        <table class="table table-image" id="cartPrint">
           <thead>
             <tr>
               <th scope="col"></th>
@@ -127,10 +127,10 @@
           </tbody>
         </table> 
         <div class="d-flex flex-column align-items-end justify-content-end">
-          <h5>Subtotal: <span class="price text-info">76$</span></h5>
-          <h5>Shipping: <span class="price text-secondary">15$</span></h5>
-          <h5>Tax: <span class="price text-primary">10$</span></h5>
-          <h5>Total: <span class="price text-success">89$</span></h5>
+          <h5>Subtotal: <span class="price text-info" id="cartSubtotal">76$</span></h5>
+          <h5>Shipping: <span class="price text-secondary" id="cartShipping">15$</span></h5>
+          <h5>Tax: <span class="price text-primary" id="cartTax">10$</span></h5>
+          <h5>Total: <span class="price text-success" id="cartTotal">89$</span></h5>
         </div>
       </div>
       <div class="modal-footer border-top-0 d-flex justify-content-between">
