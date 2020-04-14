@@ -26,9 +26,9 @@
                 🇨🇦
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" id='cad' href="#" onclick="changeToCAD();">🇨🇦CAD</a>
-                <a class="dropdown-item" id='usd' href="#" onclick="changeToUSD();">🇺🇸USD</a>
-                <a class="dropdown-item" id="kzt" href="#" onclick="changeToKZT();">🇰🇿KZT</a>
+                <a class="dropdown-item" id='cad' href="#" onclick="changeToCAD();modeChange();">🇨🇦CAD</a>
+                <a class="dropdown-item" id='usd' href="#" onclick="changeToUSD();modeChange();">🇺🇸USD</a>
+                <a class="dropdown-item" id="kzt" href="#" onclick="changeToKZT();modeChange();">🇰🇿KZT</a>
               </div>
             </div>
             <!-- Currencies drowdown menu -->
@@ -59,11 +59,11 @@
                   Category
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" id="category1" href="#" onclick="displayStoreItems(1);categoryChange(1);">Shoes</a>
-                  <a class="dropdown-item" id="category2" href="#" onclick="displayStoreItems(2);categoryChange(2);">T-Shirt</a>
-                  <a class="dropdown-item" id="category3" href="#" onclick="displayStoreItems(3);categoryChange(3);">Jeans</a>
-                  <a class="dropdown-item" id="category4" href="#" onclick="displayStoreItems(4);categoryChange(4);">Hoodie</a>
-                  <a class="dropdown-item" id="category5" href="#" onclick="displayStoreItems(5);categoryChange(5);">Socks</a>
+                  <a class="dropdown-item" id="category1" href="#" onclick="displayStoreItems(1);categoryChange(1);modeChange();">Shoes</a>
+                  <a class="dropdown-item" id="category2" href="#" onclick="displayStoreItems(2);categoryChange(2);modeChange();">T-Shirt</a>
+                  <a class="dropdown-item" id="category3" href="#" onclick="displayStoreItems(3);categoryChange(3);modeChange();">Jeans</a>
+                  <a class="dropdown-item" id="category4" href="#" onclick="displayStoreItems(4);categoryChange(4);modeChange();">Hoodie</a>
+                  <a class="dropdown-item" id="category5" href="#" onclick="displayStoreItems(5);categoryChange(5);modeChange();">Socks</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="#" onclick="displayStoreItems(0)">All Categories</a>
                 </div>
