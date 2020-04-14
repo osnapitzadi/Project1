@@ -111,6 +111,16 @@ function bootstrapFeatures(){ //JQuery functions
             }
       });
 
+      $('body').on('click', function (e) {
+        $('[data-toggle=popover]').each(function () {
+            // hide any open popovers when the anywhere else in the body is clicked
+            if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                $(this).popover('hide');
+            }
+        });
+    });
+
+
 }
 
 function displayStoreItems(typeCategory){
@@ -180,8 +190,8 @@ function displayStoreItems(typeCategory){
             addToCard.setAttribute("data-toggle", "popover");
             addToCard.setAttribute("title", "How many?");
             addToCard.setAttribute("data-div", `
-                <input type="text" value="0" id="inpQnt${index}")/>
-                <button type="button" class="btn btn-success" id=${coolID} onclick="addItemToCart(id)">Add</button>
+                <input type="text" value="1" id="inpQnt${index}")/>
+                <button type="button" class="btn btn-success" id=${coolID} onclick="addItemToCart(id);openToster();">Add</button>
             
             `) //Black Magic
             //addToCard.setAttribute("onclick", "addItemToCart(id)"); //cart on this btn
@@ -211,6 +221,12 @@ function displayStoreItems(typeCategory){
     }
 
     return
+
+}
+
+function openToster(){
+    
+    
 
 }
 
