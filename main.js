@@ -418,6 +418,8 @@ function modeChange(){
     document.getElementById("time").style.color = "#FFF";
     document.getElementById("modeLabel").style.color = "#FFF";
     document.getElementById("modeLabel").innerHTML = "Light mode";
+    document.getElementById("contactUs").style.color = "#FFF";
+    document.getElementById("contactText").style.color = "#FFF";
     //document.getElementsByClassName("card col-lg-auto").className = "card text-white bg-dark col-lg-auto"
     var cards = document.getElementsByClassName("card col-lg-auto");
         for(var i = 0; i<cards.length; i++){
@@ -453,6 +455,8 @@ function modeChange(){
             infoBtn[0].setAttribute("class", "btn btn-outline-info");
         }
 
+
+
     } else {
         document.getElementById("storeName").style.color="black";
         document.body.style.background = "#FFF";
@@ -460,6 +464,7 @@ function modeChange(){
         document.getElementById("time").style.color = "#000";
         document.getElementById("modeLabel").style.color = "#000";
         document.getElementById("modeLabel").innerHTML = "Dark mode";
+        document.getElementById("contactUs").style.color = "black";
         //document.getElementsByClassName("card text-white bg-dark col-lg-auto").className = "card col-lg-auto"
         var cards = document.getElementsByClassName("card col-lg-auto");
         for(var i = 0; i<cards.length; i++){
