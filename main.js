@@ -88,7 +88,7 @@ function init() {
 
 
     // calling this functions because jquery required to for proper working
-    // bootstrapFeatures(); // useless for this project but i'll use in future 
+    bootstrapFeatures(); // useless for this project but i'll use in future 
     changeToKZT();
     changeToUSD();
     changeToCAD();
@@ -101,21 +101,21 @@ function init() {
 //     //     })    
 
 
-//     //ACTIVATES AND CREATES POPOVERS WITH "DIV" FROM BUTTON "DATA-DIV"
+    //ACTIVATES AND CREATES POPOVERS WITH "DIV" FROM BUTTON "DATA-DIV"
 
-//     $('[data-toggle="popover"]').popover({ //black magic
-//         html: true,
-//         trigger: 'click',
-//         placement: 'top',
-//         content: function () {
-//                 //var content = $(this).attr("data-popover-content");
-//                 // return $(content).children(".popover_body").html();
-//                 //return $(".popoverLol");
-//                 return $($(this).data('div'));           
-//             }
-//       });
+    $('[data-toggle="popover"]').popover({ //black magic
+        html: true,
+        trigger: 'click',
+        placement: 'top',
+        content: function () {
+                //var content = $(this).attr("data-popover-content");
+                // return $(content).children(".popover_body").html();
+                //return $(".popoverLol");
+                return $($(this).data('div'));           
+            }
+      });
 
-// }
+}
 
 function displayStoreItems(typeCategory){
     var divOutput = document.getElementById("storeItems");
@@ -212,12 +212,6 @@ function displayStoreItems(typeCategory){
     }
 
     return
-
-}
-
-function addItemToCart(){
-
-    
 
 }
 
