@@ -72,10 +72,6 @@ function init() {
     aStore.push(new items (14, "Black Socks", 19.99, 100, 20, 5, 4.99,  getRandowReviews(), "Phasellus leo velit, tincidunt et mollis vel, dapibus ut mi.",  "src/14.png"));
     aStore.push(new items (15, "Amazon Socks", 9.99, 100, 20, 5, 4.99,  getRandowReviews(), " Donec vitae nunc vitae ante pretium pulvinar vitae et lacus. Fusce laoreet tristique mi, pretium auctor risus aliquam sed. ",  "src/15.png"));
 
-    // //delet this
-    aCart.push( new cartItems(0, 11.99, 3, 2.99));
-    aCart.push( new cartItems(1, 121.99, 3, 1.99));
-    aCart.push( new cartItems(2, 144.99, 3, 4.99));
 
 
     // for loop to create currencies global arrays w/ prices
