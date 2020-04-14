@@ -10,7 +10,6 @@
     <title> Online Store </title>
     <script src="main.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
 </head>
 
 <body onload="init()">
@@ -21,7 +20,7 @@
                 <h1 id="storeName">Online Store</h1>
             </div>
             <!-- Currencies drowdown menu -->
-            <div class="dropdown dropleft">
+            <div class="dropdown">
               <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 🇨🇦
               </button>
@@ -42,7 +41,6 @@
             </div>
             <!-- Dark mode togle -->
         </div>
-
         <!-- Nav bar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light" id="mainNavbar">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,72 +82,14 @@
           <!-- Store Items -->
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 d-flex justify-content-around" id="storeItems"></div>
           <!-- Store Items -->
-
-          <!-- Cart modal-->
-<div class="container">
-  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#cartModal">
-    View Cart
-  </button>  
-</div>
-
-<div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header border-bottom-0">
-        <h5 class="modal-title" id="exampleModalLabel">
-          Your Shopping Cart
-        </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <table class="table table-image">
-          <thead>
-            <tr>
-              <th scope="col"></th>
-              <th scope="col">Product</th>
-              <th scope="col">Price</th>
-              <th scope="col">Qty</th>
-              <th scope="col">Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="w-25">
-                <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/vans.png" class="img-fluid img-thumbnail" alt="Sheep">
-              </td>
-              <td>Vans Sk8-Hi MTE Shoes</td>
-              <td>89$</td>
-              <td class="qty"><input type="text" class="form-control" id="input1" value="2"></td>
-              <td>178$</td>
-            </tr>
-          </tbody>
-        </table> 
-        <div class="d-flex flex-column align-items-end justify-content-end">
-          <h5>Subtotal: <span class="price text-info">76$</span></h5>
-          <h5>Shipping: <span class="price text-secondary">15$</span></h5>
-          <h5>Tax: <span class="price text-primary">10$</span></h5>
-          <h5>Total: <span class="price text-success">89$</span></h5>
-        </div>
-      </div>
-      <div class="modal-footer border-top-0 d-flex justify-content-between">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success">Checkout</button>
-      </div>
-    </div>
-  </div>
-</div>          
-          <!-- Cart modal-->
+          <h2>Your Cart</h2>
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 d-flex justify-content-around" id="cartItems"></div>
 
             <!-- The tag where all hidden modals will locate -->
             <div id="hiddenModals"></div> 
         </main>
         <!-- Main -->
   
-        
-
-        <!-- Contact -->
           <div class="container my-5 py-5 z-depth-1">
             <!--Section: Content-->
             <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
@@ -220,7 +160,6 @@
                   </div>
                   <!--Grid column-->
               </div>
-          <!-- Contact -->
 
   <footer>
 
