@@ -94,7 +94,7 @@ function init() {
     changeToCAD();
 }
 
-// function bootstrapFeatures(){ //JQuery functions
+function bootstrapFeatures(){ //JQuery functions
 
 //     //   $(function () {
 //     //     $('[data-toggle="popover"]').popover()
