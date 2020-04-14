@@ -85,20 +85,14 @@ function init() {
     displayStoreItems(typeCategory); 
     displayCartItems();
     displayStoreItemsDetails();
-
-
-    // calling this functions because jquery required to for proper working
-    bootstrapFeatures(); // useless for this project but i'll use in future 
-    changeToKZT();
-    changeToUSD();
-    changeToCAD();
+    bootstrapFeatures();
 }
 
 function bootstrapFeatures(){ //JQuery functions
 
-//     //   $(function () {
-//     //     $('[data-toggle="popover"]').popover()
-//     //     })    
+    //   $(function () {
+    //     $('[data-toggle="popover"]').popover()
+    //     })    
 
 
     //ACTIVATES AND CREATES POPOVERS WITH "DIV" FROM BUTTON "DATA-DIV"
@@ -137,8 +131,6 @@ function displayStoreItems(typeCategory){
             var cardImg = document.createElement("IMG");
             cardImg.className = "card-img-top";
             cardImg.setAttribute('src', tempItem.image);
-            cardImg.setAttribute("data-toggle","modal");
-            cardImg.setAttribute("data-target","#exampleModalLong"+index);
 
             // body div
             var cardBody = document.createElement("div");
@@ -220,20 +212,17 @@ function displayStoreItems(typeCategory){
 
 }
 
-
 function addItemToCart(id){
 
     console.log("Hi you");
     //var itemId = id.substring(id.length - 1); // getting last char of string to get index
     var itemId = parseInt(id.slice(6)); // getting last char of string to get index
     console.log(itemId);
-    console.log("lol");
     var quantity = parseInt(document.getElementById("inpQnt" + itemId).value);
 
     aCart.push(new cartItems(itemId, aStore[itemId].price, quantity, aStore[itemId].shippingPrice));
 
 }
-
 
 // bug fixing function 
 function categoryChange(id) {
