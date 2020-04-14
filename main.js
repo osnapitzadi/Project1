@@ -213,14 +213,30 @@ function displayStoreItems(typeCategory){
 }
 
 function addItemToCart(id){
-
+    
     console.log("Hi you");
     //var itemId = id.substring(id.length - 1); // getting last char of string to get index
     var itemId = parseInt(id.slice(6)); // getting last char of string to get index
     console.log(itemId);
     var quantity = parseInt(document.getElementById("inpQnt" + itemId).value);
+    var checker = 0;
 
-    aCart.push(new cartItems(itemId, aStore[itemId].price, quantity, aStore[itemId].shippingPrice));
+    //VALIDATIONS
+    if(Number.isInteger(quantity)){
+        checker++;
+    } else {
+        alert("Please insert the number");
+    }
+    
+    if(quantity > aStore[itemId].maxPerCustomer || quantity > aStore[itemId].qty){
+        alert("Sorry, we don't have this much :(");
+    } else{
+        checker++;
+    }
+
+    if(checker === 2){
+        aCart.push(new cartItems(itemId, aStore[itemId].price, quantity, aStore[itemId].shippingPrice));
+    }
 
 }
 
@@ -238,10 +254,12 @@ function displayStoreItemsDetails() {
     for (let index = 0; index < aStore.length; index++) {
         const storeItem = aStore[index];
 
+        var coolID = "btnAdd" + index;
+
         var mainModalDiv = document.createElement("div");
         mainModalDiv.className = "modal fade";
         mainModalDiv.setAttribute("id", "exampleModalLong"+index);
-        mainModalDiv.setAttribute("tabindex", "-1");
+        //mainModalDiv.setAttribute("tabindex", "-1");
         mainModalDiv.setAttribute("role", "dialog");
         mainModalDiv.setAttribute("aria-labelledby", "exampleModalLongTitle");
         mainModalDiv.setAttribute("aria-hidden", "true");
@@ -342,15 +360,27 @@ function displayStoreItemsDetails() {
         footerBtn.setAttribute("data-dismiss", "modal");
         footerBtn.innerText = "Close";
 
+
+        //ADD TO CART IN FOOTER
         var footerBtnAddToCart = document.createElement('button');
         footerBtnAddToCart.setAttribute('type', 'button');
-        footerBtnAddToCart.className = 'btn btn-primary';
+        footerBtnAddToCart.setAttribute("class",'btn btn-primary');
+        //footerBtnAddToCart.setAttribute('onclick', 'addToCart()');
+        
+        //POPOVER
+        footerBtnAddToCart.setAttribute("data-toggle", "popover");
+        footerBtnAddToCart.setAttribute("title", "How many?");
+        footerBtnAddToCart.setAttribute("data-div", `
+        <input type="text" value="1" id="inpQnt${index}")/>
+        <button type="button" class="btn btn-success" id=${coolID} onclick="addItemToCart(id)">Add</button>
+        
+        `) //Black Magic
         footerBtnAddToCart.innerText = "Add to Cart";
-        footerBtnAddToCart.setAttribute('onclick', 'addToCart()');
+        
 
                 
 
-
+        //ACTIVATE ELEMENTS TO HTML
         hiddenDivOutput.appendChild(mainModalDiv);
         mainModalDiv.appendChild(main2ModalDiv);
         main2ModalDiv.appendChild(contentDiv);
@@ -502,15 +532,6 @@ function displayCartItems() {
     for (let index = 0; index < aCart.length; index++) {
         const element = aCart[index];
     }
-}
-
-function addToCart(){
-
-    var item = document.getElementById("cartBtn");
-    var itemQuantity = document.getElementById("qnt");
-    console.log("Hi you");
-    aCart.push(new cartItems(item.id, item.price, itemQuantity, item.shippingPrice));
-
 }
 
 function changeToCAD() {
