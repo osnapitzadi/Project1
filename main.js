@@ -174,18 +174,23 @@ function displayStoreItems(typeCategory){
             detailsButton.setAttribute("id", "infoBtn");
             detailsButton.innerHTML = "More Info";
 
+            var coolID = "btnAdd" + index;
+
             //CREATE BUTTON 
             var addToCard = document.createElement("button");
             addToCard.setAttribute("type", "button");
             addToCard.setAttribute("class", "btn btn-outline-dark");
+            addToCard.setAttribute("id","cartBtn" + index);
+
+            //ACTIVATE POPOVER
             addToCard.setAttribute("data-toggle", "popover");
             addToCard.setAttribute("title", "How many?");
             addToCard.setAttribute("data-div", `
-                <input type="text" value="0" id="inpQnt"/>
-                <button type="button" class="btn btn-success" id="btnAdd" onclick="addItemToCart()">Add</button>
+                <input type="text" value="0" id="inpQnt${index}")/>
+                <button type="button" class="btn btn-success" id=${coolID} onclick="addItemToCart(id)">Add</button>
             
             `) //Black Magic
-            addToCard.setAttribute("id","cartBtn");
+            //addToCard.setAttribute("onclick", "addItemToCart(id)"); //cart on this btn
             addToCard.innerText = "Add to cart";
             
 
@@ -214,6 +219,20 @@ function displayStoreItems(typeCategory){
     return
 
 }
+
+
+function addItemToCart(id){
+
+    console.log("Hi you");
+    //var itemId = id.substring(id.length - 1); // getting last char of string to get index
+    var itemId = parseInt(id.slice(6)); // getting last char of string to get index
+    console.log(itemId);
+    var quantity = parseInt(document.getElementById("inpQnt" + itemId).value);
+
+    aCart.push(new cartItems(itemId, aStore[itemId].price, quantity, aStore[itemId].shippingPrice));
+
+}
+
 
 // bug fixing function 
 function categoryChange(id) {
