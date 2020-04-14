@@ -82,6 +82,9 @@ function init() {
         USDprice.push((tempPrice * 0.72).toFixed(2));
         KZTprice.push((tempPrice * 300).toFixed(2));
     }
+    changeToKZT();
+    changeToUSD();
+    changeToCAD();
 
     currentTime();
     displayStoreItems(typeCategory); 
@@ -219,7 +222,7 @@ function displayStoreItems(typeCategory){
         }
         
     }
-
+    bootstrapFeatures();
     return
 
 }
