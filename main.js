@@ -72,6 +72,12 @@ function init() {
     aStore.push(new items (14, "Black Socks", 19.99, 100, 20, 5, 4.99,  getRandowReviews(), "Phasellus leo velit, tincidunt et mollis vel, dapibus ut mi.",  "src/14.png"));
     aStore.push(new items (15, "Amazon Socks", 9.99, 100, 20, 5, 4.99,  getRandowReviews(), " Donec vitae nunc vitae ante pretium pulvinar vitae et lacus. Fusce laoreet tristique mi, pretium auctor risus aliquam sed. ",  "src/15.png"));
 
+    // //delet this
+    aCart.push( new cartItems(1, 122.99, 3, 5.99));
+    aCart.push( new cartItems(0, 122.99, 3, 5.99));
+    aCart.push( new cartItems(2, 122.99, 3, 5.99));
+
+
     // for loop to create currencies global arrays w/ prices
     for (let index = 0; index < aStore.length; index++) {
         // const tempItem = aStore[index];
@@ -497,11 +503,99 @@ function getRandowReviews() {
 
 
 function displayCartItems() {
-    var divCart = document.getElementById("cartItems");
+    var divCart = document.getElementById("cartPrint");
+    if (aCart.length === 0) {
+        divCart.innerHTML = "Cart is empty";
+    } else { 
+        divCart.innerHTML = '';
+        // head of cart
+        var thead = document.createElement('thead');
+        var tr0 = document.createElement('tr');
+        var th0 = document.createElement('th');
+        th0.setAttribute('scope','col');
+        th0.innerText = '';
+        var product = document.createElement('th');
+        product.setAttribute('scope','col');
+        product.innerText = 'Product';
+        var price = document.createElement('th');
+        price.setAttribute('scope','col');
+        price.innerText = 'Price';
+        var headQty = document.createElement('th');
+        headQty.setAttribute('scope','col');
+        headQty.innerText = 'Qty';
+        var subtotal = document.createElement('th');
+        subtotal.setAttribute('scope','col');
+        subtotal.innerText = 'Subtotal';
 
-    for (let index = 0; index < aCart.length; index++) {
-        const element = aCart[index];
+        divCart.appendChild(thead);
+        thead.appendChild(tr0);
+        tr0.appendChild(th0);
+        tr0.appendChild(product);
+        tr0.appendChild(price);
+        tr0.appendChild(headQty);
+        tr0.appendChild(subtotal);
+
+        for (let index = 0; index < aCart.length; index++) {
+            if (aCart[index].qty == 0) {
+                aCart.splice(index,1);
+                index--;
+            } else {
+                const element = aCart[index];
+
+                // printing all items to cart from aCart
+                var tbody = document.createElement('tbody');
+
+                var tr = document.createElement('tr');
+
+                var tdW25 = document.createElement('td');
+                tdW25.className = "w-25";
+
+                var img = document.createElement('img');
+                img.setAttribute('src',aStore[element.id].image);
+                img.className = 'img-fluid img-thumbnail';
+
+                var tdName = document.createElement('td');
+                tdName.innerText = aStore[element.id].name;
+
+                var tdPrice = document.createElement('td');
+                tdPrice.innerText = "$" + element.price;
+
+                var tdQty = document.createElement('td');
+                tdQty.className = 'qty';
+
+                var qtyInput = document.createElement("input");
+                qtyInput.setAttribute("class","form-control");
+                qtyInput.setAttribute('type','text');
+                // adding onclick atr with id to each items input to get value and update subtotal
+                qtyInput.setAttribute('onchange',`qtyChange(${index},document.getElementById("qtyInputId"+${index}).value);`);
+                qtyInput.setAttribute('id','qtyInputId'+index);
+                qtyInput.setAttribute('value', aCart[index].qty);
+
+                divCart.appendChild(tbody);
+                tbody.appendChild(tr);
+                tbody.appendChild(tdW25);
+                tdW25.appendChild(img);
+                tbody.appendChild(tdName);
+                tbody.appendChild(tdPrice);
+                tbody.appendChild(tdQty);
+                tdQty.appendChild(qtyInput);
+                
+                var tdTotal = document.createElement('td');
+                tdTotal.innerText = "$" + (element.price * (document.getElementById('qtyInputId'+index).value)).toFixed(2);
+                
+                tbody.appendChild(tdTotal);
+            } //end if 
+        } // end for loop
+        // check after deleting all items from cart
+        if (aCart.length === 0) {
+            divCart.innerHTML = "Cart is empty";
+        }
     }
+}
+
+function qtyChange (i,x) {
+    aCart[i].qty = x;
+    displayCartItems();
 }
 
 function addToCart(){
