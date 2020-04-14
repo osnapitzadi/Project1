@@ -82,6 +82,10 @@ function init() {
         USDprice.push((tempPrice * 0.72).toFixed(2));
         KZTprice.push((tempPrice * 300).toFixed(2));
     }
+    
+    changeToKZT();
+    changeToUSD();
+    changeToCAD();
 
     currentTime();
     displayStoreItems(typeCategory); 
@@ -180,7 +184,7 @@ function displayStoreItems(typeCategory){
             addToCard.setAttribute("data-toggle", "popover");
             addToCard.setAttribute("title", "How many?");
             addToCard.setAttribute("data-div", `
-                <input type="text" value="0" id="inpQnt${index}")/>
+                <input type="text" value="1" id="inpQnt${index}")/>
                 <button type="button" class="btn btn-success" id=${coolID} onclick="addItemToCart(id)">Add</button>
             
             `) //Black Magic
@@ -209,7 +213,7 @@ function displayStoreItems(typeCategory){
         }
         
     }
-
+    bootstrapFeatures();
     return
 
 }
