@@ -218,6 +218,7 @@ function addItemToCart(id){
     //var itemId = id.substring(id.length - 1); // getting last char of string to get index
     var itemId = parseInt(id.slice(6)); // getting last char of string to get index
     console.log(itemId);
+    console.log("lol");
     var quantity = parseInt(document.getElementById("inpQnt" + itemId).value);
 
     aCart.push(new cartItems(itemId, aStore[itemId].price, quantity, aStore[itemId].shippingPrice));
