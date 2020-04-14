@@ -626,8 +626,14 @@ function displayCartItems() {
     subtotalCalculator();
 }
 
-function qtyChange (i,x) {
-    aCart[i].qty = x;
+function qtyChange (indexOfaStore,value) {
+  
+
+    if (value > aStore[indexOfaStore].maxPerCustomer || value > aStore[indexOfaStore].qty) {
+        alert("We don't have that much :C");
+    } else {  
+        aCart[indexOfaStore].qty = value;
+    }
     displayCartItems();
     subtotalCalculator();
 }
@@ -660,7 +666,7 @@ function subtotalCalculator() {
 
     cartSubtotal.innerHTML = "$" + subtotal.toFixed(2);
     cartShipping.innerHTML = '$' + shippingPriceCart.toFixed(2);
-    cartTax.innerHTML = (subtotal * HTS_TAX).toFixed(2);
+    cartTax.innerHTML = "$" + (subtotal * HTS_TAX).toFixed(2);
     cartTotal.innerHTML = '$' + (subtotal + (subtotal * HTS_TAX)+shippingPriceCart).toFixed(2);
 
 
