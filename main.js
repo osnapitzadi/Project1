@@ -73,9 +73,9 @@ function init() {
     aStore.push(new items (15, "Amazon Socks", 9.99, 100, 20, 5, 4.99,  getRandowReviews(), " Donec vitae nunc vitae ante pretium pulvinar vitae et lacus. Fusce laoreet tristique mi, pretium auctor risus aliquam sed. ",  "src/15.png"));
 
     // //delet this
-    aCart.push( new cartItems(1, 122.99, 3, 5.99));
-    aCart.push( new cartItems(0, 122.99, 3, 5.99));
-    aCart.push( new cartItems(2, 122.99, 3, 5.99));
+    aCart.push( new cartItems(0, 11.99, 3, 2.99));
+    aCart.push( new cartItems(1, 121.99, 3, 1.99));
+    aCart.push( new cartItems(2, 144.99, 3, 4.99));
 
 
     // for loop to create currencies global arrays w/ prices
@@ -582,6 +582,7 @@ function displayCartItems() {
                 
                 var tdTotal = document.createElement('td');
                 tdTotal.innerText = "$" + (element.price * (document.getElementById('qtyInputId'+index).value)).toFixed(2);
+                tdTotal.className = 'subtotal';
                 
                 tbody.appendChild(tdTotal);
             } //end if 
@@ -590,13 +591,50 @@ function displayCartItems() {
         if (aCart.length === 0) {
             divCart.innerHTML = "Cart is empty";
         }
-    }
+    } // end of if
+    subtotalCalculator();
 }
 
 function qtyChange (i,x) {
     aCart[i].qty = x;
     displayCartItems();
+    subtotalCalculator();
 }
+
+function subtotalCalculator() {
+
+    var subtotals = document.getElementsByClassName("subtotal");
+    var cartSubtotal = document.getElementById("cartSubtotal");
+    var cartShipping = document.getElementById('cartShipping');
+    var cartTax = document.getElementById('cartTax');
+    var cartTotal = document.getElementById('cartTotal');
+
+    // var x = subtotals.length;
+    var subtotal = 0;
+    var shippingPriceCart = 0;
+    const HTS_TAX = 0.13;
+
+    for (let index = 0; index < subtotals.length; index++) {
+        var element = subtotals[index].innerText;
+        var floatElement = parseFloat(element.slice(1));
+        subtotal += floatElement;
+        console.log('subtotal: ' + subtotal);
+    }
+
+    for (let index = 0; index < aCart.length; index++) {
+        const shippingPrice = aCart[index].shippingPrice;
+        shippingPriceCart += shippingPrice;
+        console.log(shippingPriceCart);
+    }
+
+    cartSubtotal.innerHTML = "$" + subtotal.toFixed(2);
+    cartShipping.innerHTML = '$' + shippingPriceCart.toFixed(2);
+    cartTax.innerHTML = (subtotal * HTS_TAX).toFixed(2);
+    cartTotal.innerHTML = '$' + (subtotal + (subtotal * HTS_TAX)+shippingPriceCart).toFixed(2);
+
+
+}
+
 
 function addToCart(){
 
