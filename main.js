@@ -41,7 +41,7 @@ function currentTime() {
     hour = updateTime(hour);
     min = updateTime(min);
     sec = updateTime(sec);
-    document.getElementById("time").innerText = month + "/" + day + "/" + year + "/" + " " + hour + " : " + min + " : " + sec; // adding time to the div
+    document.getElementById("time").innerText = month + "/" + day + "/" + year + "  " + hour + " : " + min + " : " + sec; // adding time to the div
       var t = setTimeout(function(){ currentTime() }, 1000); // setting timer
   }
   // updating time function
@@ -615,7 +615,7 @@ function displayCartItems() {
                 tdName.innerText = aStore[element.id].name;
 
                 var tdPrice = document.createElement('td');
-                tdPrice.innerText = "$" + element.price;
+                tdPrice.innerText = "$" + aStore[aCart[index].id].price;
 
                 var tdQty = document.createElement('td');
                 tdQty.className = 'qty';
@@ -638,7 +638,7 @@ function displayCartItems() {
                 tdQty.appendChild(qtyInput);
                 
                 var tdTotal = document.createElement('td');
-                tdTotal.innerText = "$" + (element.price * (document.getElementById('qtyInputId'+index).value)).toFixed(2);
+                tdTotal.innerText = "$" + (aStore[aCart[index].id].price * (document.getElementById('qtyInputId'+index).value)).toFixed(2);
                 tdTotal.className = 'subtotal';
                 
                 tbody.appendChild(tdTotal);
