@@ -16,12 +16,17 @@
 <body onload="init()">
   <div class="container"> 
     <header>
-        <div class="row">
-            <div class="col">
-                <h1 id="storeName">Online Store</h1>
-            </div>
+      <div class="col-sm align-items-start">
+          <h1 id="storeName">Online Store</h1>
+      </div>
+        <div class="row d-flex justify-content-end">
+
+            <button type="button" class="btn btn-success col-sm-auto align-self-center" data-toggle="modal" data-target="#cartModal" onclick="displayCartItems()">
+              View Cart
+            </button>  
+
             <!-- Currencies drowdown menu -->
-            <div class="dropdown dropleft">
+            <div class="dropdown dropleft col-sm-auto align-self-center">
               <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 🇨🇦
               </button>
@@ -34,7 +39,7 @@
             <!-- Currencies drowdown menu -->
 
             <!-- Dark mode togle -->
-            <div class = "col-sm-auto">
+            <div class = "col-sm-auto align-self-center">
               <div class="custom-control custom-switch" onchange="modeChange()">
                 <input type="checkbox" class="custom-control-input" id="customSwitch1">
                 <label class="custom-control-label" for="customSwitch1" id = "modeLabel">Dark mode</label>
@@ -65,7 +70,7 @@
                   <a class="dropdown-item" id="category4" href="#" onclick="displayStoreItems(4);categoryChange(4);modeChange();">Hoodie</a>
                   <a class="dropdown-item" id="category5" href="#" onclick="displayStoreItems(5);categoryChange(5);modeChange();">Socks</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#" onclick="displayStoreItems(0)">All Categories</a>
+                  <a class="dropdown-item" href="#" onclick="displayStoreItems(0);modeChange();">All Categories</a>
                 </div>
               </li>
               <li><a class="fb-ic">
@@ -89,7 +94,7 @@
 <div class="container">
   <button type="button" class="btn btn-success" data-toggle="modal" data-target="#cartModal" onclick="displayCartItems()">
     View Cart
-  </button>  
+  </button> 
 </div>
 
 <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -150,7 +155,7 @@
         
 
         <!-- Contact -->
-          <div class="container my-5 py-5 z-depth-1">
+          <div id="contact" class="container my-5 py-5 z-depth-1">
             <!--Section: Content-->
             <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
 

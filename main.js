@@ -116,14 +116,19 @@ function bootstrapFeatures(){ //JQuery functions
 
       $('body').on('click', function (e) {
         $('[data-toggle=popover]').each(function () {
-            // hide any open popovers when the anywhere else in the body is clicked
-            if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+            // hide any open popovers when the anywhere else in the body is clicked or inner button 'add'
+            if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0 || $(e.target).is('.add')) {
                 $(this).popover('hide');
             }
         });
     });
 
-
+    // 
+    // $(document).click(function (e) {
+    //     if (($('.popover').has(e.target).length == 0) || $(e.target).is('.close')) {
+    //         $('#popoverId').popover('hide');
+    //     }
+    // });
 }
 
 function displayStoreItems(typeCategory){
@@ -139,13 +144,13 @@ function displayStoreItems(typeCategory){
             //tempCard.className = "card text-black bg-light col-lg-auto"; // the reason why I give class name is bootstrap library;
             tempCard.style = "width: 18rem;";
             tempCard.setAttribute("id", "card");
-            //tempCard.setAttribute("data-toggle","modal");
-            //tempCard.setAttribute("data-target","#exampleModalLong"+index);
 
             // card 
             var cardImg = document.createElement("IMG");
             cardImg.className = "card-img-top";
             cardImg.setAttribute('src', tempItem.image);
+            cardImg.setAttribute("data-toggle","modal");
+            cardImg.setAttribute("data-target","#exampleModalLong"+index);
 
             // body div
             var cardBody = document.createElement("div");
@@ -194,7 +199,7 @@ function displayStoreItems(typeCategory){
             addToCard.setAttribute("title", "How many?");
             addToCard.setAttribute("data-div", `
                 <input type="text" value="1" id="inpQnt${index}")/>
-                <button type="button" class="btn btn-success" id=${coolID} onclick="addItemToCart(id);openToster();">Add</button>
+                <button type="button" class="btn btn-success add" id=${coolID} onclick="addItemToCart(id);openToster();">Add</button>
             
             `) //Black Magic
             //addToCard.setAttribute("onclick", "addItemToCart(id)"); //cart on this btn
@@ -245,6 +250,7 @@ function addItemToCart(id){
     //VALIDATIONS
     if(Number.isInteger(quantity)){
         checker++;
+        
     } else {
         alert("Please insert the number");
     }
@@ -257,6 +263,7 @@ function addItemToCart(id){
 
     if(checker === 2){
         aCart.push(new cartItems(itemId, aStore[itemId].price, quantity, aStore[itemId].shippingPrice));
+        alert('Item has been successfully added');
     }
 
 }
