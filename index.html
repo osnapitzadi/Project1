@@ -19,10 +19,10 @@
       <div class="col-sm align-items-start">
           <h1 id="storeName">Online Store</h1>
       </div>
-        <div class="row justify-content-end">
+        <div class="d-flex flex-row-reverse" id="modeButtons">
 
           <!-- View Cart -->
-          <button type="button" class="btn btn-success col-sm-auto align-self-center" data-toggle="modal" data-target="#cartModal" onclick="displayCartItems()">
+          <button type="button" id="viewCart" class="btn btn-success col-sm-auto align-self-center" data-toggle="modal" data-target="#cartModal" onclick="displayCartItems()">
             View Cart
           </button>  
           <!-- View Cart -->
@@ -61,7 +61,7 @@
               <li class="nav-item active">
                 <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
               </li>
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown active">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Category
                 </a>
@@ -75,10 +75,6 @@
                   <a class="dropdown-item" href="#" onclick="displayStoreItems(0);modeChange();">All Categories</a>
                 </div>
               </li>
-              <li><a class="fb-ic">
-                <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-              </a>
-            </li>
           </ul>
           <div id="time">Time</div>
         </div>

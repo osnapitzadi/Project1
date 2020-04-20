@@ -115,7 +115,6 @@ function bootstrapFeatures(){
             }
         });
     });
-
 }
 
 function displayStoreItems(typeCategory){
@@ -421,7 +420,12 @@ function modeChange(){
     document.getElementById("modeLabel").innerHTML = "Light mode";
     document.getElementById("contactUs").style.color = "#FFF";
     document.getElementById("contact").style.color = "#FFF";
-    //document.getElementsByClassName("card col-lg-auto").className = "card text-white bg-dark col-lg-auto"
+
+    var table = document.getElementsByTagName("table");
+        for (let index = 0; index < table.length; index++) {
+            table[index].style.background = "#404040";
+            table[index].style.color = "white";
+        }
     var hiddenmodals = document.getElementsByClassName("modal-content");
         for (let index = 0; index < hiddenmodals.length; index++) {
             hiddenmodals[index].style.background = "#404040";
@@ -548,6 +552,8 @@ function displayCartItems() {
         var tr0 = document.createElement('tr');
         var th0 = document.createElement('th');
         th0.setAttribute('scope','col');
+        th0.setAttribute('id','th0');
+        // th0.className = "d-none d-sm-block";
         th0.innerText = '';
         var product = document.createElement('th');
         product.setAttribute('scope','col');
