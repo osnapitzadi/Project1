@@ -76,7 +76,6 @@ function init() {
 
     // for loop to create currencies global arrays w/ prices
     for (let index = 0; index < aStore.length; index++) {
-        // const tempItem = aStore[index];
         const tempPrice = aStore[index]["price"];
         CADprice.push(tempPrice);
         USDprice.push((tempPrice * 0.72).toFixed(2));
@@ -93,13 +92,10 @@ function init() {
     bootstrapFeatures();
 }
 
-function bootstrapFeatures(){ //JQuery functions
-
-    //   $(function () {
-    //     $('[data-toggle="popover"]').popover()
-    //     })    
-
-
+    
+//JQuery functions
+function bootstrapFeatures(){ 
+    
     //ACTIVATES AND CREATES POPOVERS WITH "DIV" FROM BUTTON "DATA-DIV"
 
     $('[data-toggle="popover"]').popover({ //black magic
@@ -107,9 +103,6 @@ function bootstrapFeatures(){ //JQuery functions
         trigger: 'click',
         placement: 'top',
         content: function () {
-                //var content = $(this).attr("data-popover-content");
-                // return $(content).children(".popover_body").html();
-                //return $(".popoverLol");
                 return $($(this).data('div'));           
             }
       });
@@ -123,12 +116,6 @@ function bootstrapFeatures(){ //JQuery functions
         });
     });
 
-    // 
-    // $(document).click(function (e) {
-    //     if (($('.popover').has(e.target).length == 0) || $(e.target).is('.close')) {
-    //         $('#popoverId').popover('hide');
-    //     }
-    // });
 }
 
 function displayStoreItems(typeCategory){
@@ -202,14 +189,8 @@ function displayStoreItems(typeCategory){
                 <button type="button" class="btn btn-success add" id=${coolID} onclick="addItemToCart(id);openToster();">Add</button>
             
             `) //Black Magic
-            //addToCard.setAttribute("onclick", "addItemToCart(id)"); //cart on this btn
             addToCard.innerText = "Add to cart";
             
-
-            // $("#btnLess").click(function(){
-            //     console.log("minus");
-            //     $("#inpQnt").text("3");
-            // });
             
             
             //child parent stucture
@@ -232,16 +213,10 @@ function displayStoreItems(typeCategory){
 
 }
 
-function openToster(){
-    
-    
-
-}
 
 function addItemToCart(id){
     
     console.log("Hi you");
-    //var itemId = id.substring(id.length - 1); // getting last char of string to get index
     var itemId = parseInt(id.slice(6)); // getting last char of string to get index
     console.log(itemId);
     var quantity = parseInt(document.getElementById("inpQnt" + itemId).value);
@@ -405,9 +380,6 @@ function displayStoreItemsDetails() {
         `) //Black Magic
         footerBtnAddToCart.innerText = "Add to Cart";
         
-
-                
-
         //ACTIVATE ELEMENTS TO HTML
         hiddenDivOutput.appendChild(mainModalDiv);
         mainModalDiv.appendChild(main2ModalDiv);
