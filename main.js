@@ -186,7 +186,7 @@ function displayStoreItems(typeCategory){
             addToCard.setAttribute("title", "How many?");
             addToCard.setAttribute("data-div", `
                 <input type="text" value="1" id="inpQnt${index}")/>
-                <button type="button" class="btn btn-success add" id=${coolID} onclick="addItemToCart(id);openToster();">Add</button>
+                <button type="button" class="btn btn-success add" id=${coolID} onclick="addItemToCart(id);">Add</button>
             
             `) //Black Magic
             addToCard.innerText = "Add to cart";
@@ -216,7 +216,6 @@ function displayStoreItems(typeCategory){
 
 function addItemToCart(id){
     
-    console.log("Hi you");
     var itemId = parseInt(id.slice(6)); // getting last char of string to get index
     console.log(itemId);
     var quantity = parseInt(document.getElementById("inpQnt" + itemId).value);
@@ -238,6 +237,8 @@ function addItemToCart(id){
 
     if(checker === 2){
         aCart.push(new cartItems(itemId, aStore[itemId].price, quantity, aStore[itemId].shippingPrice));
+        aStore[itemId].qty = aStore[itemId].qty - quantity; // to prevent add more than possible on stoke
+        aStore[itemId].maxPerCustomer = aStore[itemId].maxPerCustomer - quantity; // to prevent add more than more customes
         alert('Item has been successfully added');
     }
 
@@ -419,8 +420,13 @@ function modeChange(){
     document.getElementById("modeLabel").style.color = "#FFF";
     document.getElementById("modeLabel").innerHTML = "Light mode";
     document.getElementById("contactUs").style.color = "#FFF";
-    document.getElementById("contactText").style.color = "#FFF";
+    document.getElementById("contact").style.color = "#FFF";
     //document.getElementsByClassName("card col-lg-auto").className = "card text-white bg-dark col-lg-auto"
+    var hiddenmodals = document.getElementsByClassName("modal-content");
+        for (let index = 0; index < hiddenmodals.length; index++) {
+            hiddenmodals[index].style.background = "#404040";
+            hiddenmodals[index].style.color = "white";
+        }
     var cards = document.getElementsByClassName("card col-lg-auto");
         for(var i = 0; i<cards.length; i++){
             cards[i].style.background = "#404040";

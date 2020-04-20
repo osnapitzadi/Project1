@@ -21,32 +21,34 @@
       </div>
         <div class="row justify-content-end">
 
-            <button type="button" class="btn btn-success col-sm-auto align-self-center" data-toggle="modal" data-target="#cartModal" onclick="displayCartItems()">
-              View Cart
-            </button>  
+          <!-- View Cart -->
+          <button type="button" class="btn btn-success col-sm-auto align-self-center" data-toggle="modal" data-target="#cartModal" onclick="displayCartItems()">
+            View Cart
+          </button>  
+          <!-- View Cart -->
 
-            <!-- Currencies drowdown menu -->
-            <div class="dropdown dropleft col-sm-auto align-self-center">
-              <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                🇨🇦
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" id='cad' href="#" onclick="changeToCAD();modeChange();">🇨🇦CAD</a>
-                <a class="dropdown-item" id='usd' href="#" onclick="changeToUSD();modeChange();">🇺🇸USD</a>
-                <a class="dropdown-item" id="kzt" href="#" onclick="changeToKZT();modeChange();">🇰🇿KZT</a>
-              </div>
+          <!-- Currencies drowdown menu -->
+          <div class="dropdown dropleft col-sm-auto align-self-center">
+            <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              🇨🇦
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" id='cad' href="#" onclick="changeToCAD();modeChange();">🇨🇦CAD</a>
+              <a class="dropdown-item" id='usd' href="#" onclick="changeToUSD();modeChange();">🇺🇸USD</a>
+              <a class="dropdown-item" id="kzt" href="#" onclick="changeToKZT();modeChange();">🇰🇿KZT</a>
             </div>
-            <!-- Currencies drowdown menu -->
+          </div>
+          <!-- Currencies drowdown menu -->
 
-            <!-- Dark mode togle -->
-            <div class = "col-sm-auto align-self-center">
-              <div class="custom-control custom-switch" onchange="modeChange()">
-                <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                <label class="custom-control-label" for="customSwitch1" id = "modeLabel">Dark mode</label>
-              </div>
+          <!-- Dark mode togle -->
+          <div class = "col-sm-auto align-self-center">
+            <div class="custom-control custom-switch" onchange="modeChange()">
+              <input type="checkbox" class="custom-control-input" id="customSwitch1">
+              <label class="custom-control-label" for="customSwitch1" id = "modeLabel">Dark mode</label>
             </div>
-            <!-- Dark mode togle -->
-        </div>
+          </div>
+          <!-- Dark mode togle -->
+      </div>
 
         <!-- Nav bar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light" id="mainNavbar">
@@ -91,11 +93,11 @@
           <!-- Store Items -->
 
           <!-- Cart modal-->
-<div class="container">
-  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#cartModal" onclick="displayCartItems()">
-    View Cart
-  </button> 
-</div>
+  <div class="container">
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#cartModal" onclick="displayCartItems()">
+      View Cart
+    </button> 
+  </div>
 
 <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
