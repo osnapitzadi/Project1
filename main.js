@@ -472,8 +472,20 @@ function modeChange(){
         document.getElementById("time").style.color = "#000";
         document.getElementById("modeLabel").style.color = "#000";
         document.getElementById("modeLabel").innerHTML = "Dark mode";
-        document.getElementById("contactUs").style.color = "black";
-        //document.getElementsByClassName("card text-white bg-dark col-lg-auto").className = "card col-lg-auto"
+        document.getElementById("contact").style.color = "black";
+
+        var table = document.getElementsByTagName("table");
+        for (let index = 0; index < table.length; index++) {
+            table[index].style.background = "white";
+            table[index].style.color = "black";
+        }
+
+        var hiddenmodals = document.getElementsByClassName("modal-content");
+        for (let index = 0; index < hiddenmodals.length; index++) {
+            hiddenmodals[index].style.background = "white";
+            hiddenmodals[index].style.color = "black";
+        }
+
         var cards = document.getElementsByClassName("card col-lg-auto");
         for(var i = 0; i<cards.length; i++){
             cards[i].style.background = "#FFF";

@@ -63,7 +63,8 @@ and (min-device-width : 345px)
 and (max-device-width : 575px) {
 
     #modeButtons {
-        flex-wrap: wrap-reverse;
+        display: flex;
+        flex-direction: column-reverse;
     }
     
     #storeItems img{
