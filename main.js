@@ -472,6 +472,7 @@ function modeChange(){
         document.getElementById("time").style.color = "#000";
         document.getElementById("modeLabel").style.color = "#000";
         document.getElementById("modeLabel").innerHTML = "Dark mode";
+        document.getElementById("contactUs").style.color = "black";
         document.getElementById("contact").style.color = "black";
 
         var table = document.getElementsByTagName("table");
