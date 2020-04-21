@@ -44,7 +44,8 @@ and (max-device-width : 1024px) {
     
     #storeItems img{
         height: 200px;
-        width: 180px;
+        width: 200px;
+        align-self: center;
     }
 
 }
@@ -60,20 +61,32 @@ and (max-device-width : 767px) {
 @media only screen 
 and (min-device-width : 345px) 
 and (max-device-width : 575px) {
+
+    #modeButtons {
+        flex-wrap: wrap-reverse;
+    }
     
     #storeItems img{
         height: auto;
     }
 
     #viewCart {
-        width: 80px;
+        width: 100px;
     }
 
     #dropdownMenuButton1 {
         width: 80px;
     }
-
+    
+    #th0 {
+        display: none;
+    }
+    
+    .w-25 {
+        display: none;
+    }
 }
+
 
 #infoBtn{
     margin: 5px;

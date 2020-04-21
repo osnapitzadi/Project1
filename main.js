@@ -30,18 +30,17 @@ function cartItems (id, price, qty, shippingPrice){
     this.shippingPrice = shippingPrice
 };
 
+//current time date
 function currentTime() {
     var date = new Date(); // creating object of Date 
     var hour = date.getHours();
     var min = date.getMinutes();
     var sec = date.getSeconds();
-    var day = date.getDay();
-    var month = date.getMonth();
-    var year = date.getFullYear();
+    var fulldate = date.toDateString();
     hour = updateTime(hour);
     min = updateTime(min);
     sec = updateTime(sec);
-    document.getElementById("time").innerText = month + "/" + day + "/" + year + "  " + hour + " : " + min + " : " + sec; // adding time to the div
+    document.getElementById("time").innerText = fulldate + " " + hour + " : " + min + " : " + sec; // adding time to the div
       var t = setTimeout(function(){ currentTime() }, 1000); // setting timer
   }
   // updating time function
@@ -81,6 +80,8 @@ function init() {
         USDprice.push((tempPrice * 0.72).toFixed(2));
         KZTprice.push((tempPrice * 300).toFixed(2));
     }
+
+    // calling this function because of jQuery
     changeToKZT();
     changeToUSD();
     changeToCAD();
@@ -95,9 +96,7 @@ function init() {
     
 //JQuery functions
 function bootstrapFeatures(){ 
-    
-    //ACTIVATES AND CREATES POPOVERS WITH "DIV" FROM BUTTON "DATA-DIV"
-
+    // this jQuery function creates pop up div element on click "Add Item"
     $('[data-toggle="popover"]').popover({ //black magic
         html: true,
         trigger: 'click',
@@ -114,20 +113,19 @@ function bootstrapFeatures(){
                 $(this).popover('hide');
             }
         });
-    });
+    }); // need to call in init() for proper function
 }
 
-function displayStoreItems(typeCategory){
-    var divOutput = document.getElementById("storeItems");
+function displayStoreItems(typeCategory){ // parament to check which category was opened last and prevent massive code with a 6 if statement :)
+    var divOutput = document.getElementById("storeItems"); 
     divOutput.innerHTML = "";
-    for(let index = 0; index < aStore.length; index++){
+    for(let index = 0; index < aStore.length; index++){ 
         if(typeCategory === aStore[index].category || typeCategory === 0){
         
             const tempItem = aStore[index];
             //main div
             var tempCard = document.createElement("div");
             tempCard.className = "card col-lg-auto"; // the reason why I give class name is bootstrap library;
-            //tempCard.className = "card text-black bg-light col-lg-auto"; // the reason why I give class name is bootstrap library;
             tempCard.style = "width: 18rem;";
             tempCard.setAttribute("id", "card");
 
@@ -174,13 +172,13 @@ function displayStoreItems(typeCategory){
 
             var coolID = "btnAdd" + index;
 
-            //CREATE BUTTON 
+            // button 'add to cart' with unique id 
             var addToCard = document.createElement("button");
             addToCard.setAttribute("type", "button");
             addToCard.setAttribute("class", "btn btn-outline-dark");
             addToCard.setAttribute("id","cartBtn" + index);
 
-            //ACTIVATE POPOVER
+            // creates popover data for jQuery which triggers by bootstrapFeatures()
             addToCard.setAttribute("data-toggle", "popover");
             addToCard.setAttribute("title", "How many?");
             addToCard.setAttribute("data-div", `
@@ -217,10 +215,10 @@ function addItemToCart(id){
     
     var itemId = parseInt(id.slice(6)); // getting last char of string to get index
     console.log(itemId);
-    var quantity = parseInt(document.getElementById("inpQnt" + itemId).value);
-    var checker = 0;
+    var quantity = parseInt(document.getElementById("inpQnt" + itemId).value); // takes value from input in popover
+    var checker = 0; // checher for validations
 
-    //VALIDATIONS
+    // validations
     if(Number.isInteger(quantity)){
         checker++;
         
@@ -235,7 +233,7 @@ function addItemToCart(id){
     }
 
     if(checker === 2){
-        aCart.push(new cartItems(itemId, aStore[itemId].price, quantity, aStore[itemId].shippingPrice));
+        aCart.push(new cartItems(itemId, aStore[itemId].price, quantity, aStore[itemId].shippingPrice)); // add element to cart array
         aStore[itemId].qty = aStore[itemId].qty - quantity; // to prevent add more than possible on stoke
         aStore[itemId].maxPerCustomer = aStore[itemId].maxPerCustomer - quantity; // to prevent add more than more customes
         alert('Item has been successfully added');
@@ -411,7 +409,7 @@ function displayStoreItemsDetails() {
 
 // dark mode function
 function modeChange(){
-    if(document.getElementById("customSwitch1").checked == true){
+    if(document.getElementById("customSwitch1").checked == true){ // dark mode
     document.getElementById("storeName").style.color="#FFF";
     document.body.style.background = "#363636";
     document.getElementById("mainNavbar").className = "navbar navbar-expand-lg navbar-dark bg-dark";
@@ -467,7 +465,7 @@ function modeChange(){
 
 
 
-    } else {
+    } else { // light mode
         document.getElementById("storeName").style.color="black";
         document.body.style.background = "#FFF";
         document.getElementById("mainNavbar").className = "navbar navbar-expand-lg navbar-light bg-light";
@@ -517,6 +515,7 @@ function modeChange(){
 var words = ['Buy with us!', 'Buy a lot!', 'Buy with friends!', 'Buy now!'];
 var currentWord = -1;
 
+// dinamic changing title 
 setInterval(function(){
     currentWord++;
     if(currentWord >= words.length)
@@ -524,9 +523,9 @@ setInterval(function(){
         currentWord = 0;
     }
     document.getElementById("storeName").innerHTML = words[currentWord];
-}, 3000);
+}, 3000); // callback 3 sec
 
-
+// random nuber function from 0 to "max"
 function randomNumber(max){
     return Math.round(Math.random() * (max - 0) + 0);
 }
@@ -540,7 +539,7 @@ function getRandowReviews() {
 }
 
 
-
+// function which creates DOM elements in hidden modal 
 function displayCartItems() {
     var divCart = document.getElementById("cartPrint");
     if (aCart.length === 0) {
@@ -644,71 +643,72 @@ function qtyChange (i,x) {
 
 function subtotalCalculator() {
 
+    //variables for readable code and better practice with DOM elements
     var subtotals = document.getElementsByClassName("subtotal");
     var cartSubtotal = document.getElementById("cartSubtotal");
     var cartShipping = document.getElementById('cartShipping');
     var cartTax = document.getElementById('cartTax');
     var cartTotal = document.getElementById('cartTotal');
 
-    // var x = subtotals.length;
     var subtotal = 0;
     var shippingPriceCart = 0;
     const HTS_TAX = 0.13;
 
-    for (let index = 0; index < subtotals.length; index++) {
-        var element = subtotals[index].innerText;
-        var floatElement = parseFloat(element.slice(1));
-        subtotal += floatElement;
-        console.log('subtotal: ' + subtotal);
+    for (let index = 0; index < subtotals.length; index++) { // an array of all elements in cart with class subtotal 
+        var element = subtotals[index].innerText; 
+        var floatElement = parseFloat(element.slice(1)); // cuting $ sign 
+        subtotal += floatElement; // sum of numbers 
     }
 
     for (let index = 0; index < aCart.length; index++) {
-        const shippingPrice = aCart[index].shippingPrice;
-        shippingPriceCart += shippingPrice;
-        console.log(shippingPriceCart);
+        const shippingPrice = aCart[index].shippingPrice; 
+        shippingPriceCart += shippingPrice;// all shipping prices in cart
     }
 
-    cartSubtotal.innerHTML = "$" + subtotal.toFixed(2);
-    cartShipping.innerHTML = '$' + shippingPriceCart.toFixed(2);
-    cartTax.innerHTML = (subtotal * HTS_TAX).toFixed(2);
-    cartTotal.innerHTML = '$' + (subtotal + (subtotal * HTS_TAX)+shippingPriceCart).toFixed(2);
+    cartSubtotal.innerHTML = "$" + subtotal.toFixed(2); // output of subtotal
+    cartShipping.innerHTML = '$' + shippingPriceCart.toFixed(2); // output of sum of shipping price
+    cartTax.innerHTML = (subtotal * HTS_TAX).toFixed(2); // tax amount
+    cartTotal.innerHTML = '$' + (subtotal + (subtotal * HTS_TAX)+shippingPriceCart).toFixed(2); // final total
 
 
 }
 
 
 function changeToCAD() {
+    // this is jQuery function which track event "click" to change text in dropdown menu to CAD
     $(document).ready(function(){
         $('#cad').click(function() {
             $("#dropdownMenuButton1").text('🇨🇦');
         })
-    });
+    }); // need to call this function in init() for proper work 
     for (let index = 0; index < aStore.length; index++) {
         aStore[index].price = parseFloat(CADprice[index]);
     }
-    displayStoreItems(typeCategory);
+    displayStoreItems(typeCategory); // for update currencies in html 
 }
 
 function changeToUSD() {
+    // this is jQuery function which track event "click" to change text in dropdown menu to USD
     $(document).ready(function(){
         $('#usd').click(function() {
             $("#dropdownMenuButton1").text('🇺🇸');
         })
-    });
+    }); // need to call this function in init() for proper work 
     for (let index = 0; index < aStore.length; index++) {
         aStore[index].price = parseFloat(USDprice[index]);
     }
-    displayStoreItems(typeCategory);
+    displayStoreItems(typeCategory); // for update currencies in html 
 }
 
 function changeToKZT () {
+    // this is jQuery function which track event "click" to change text in dropdown menu to KAZ
     $(document).ready(function(){
         $('#kzt').click(function() {
-            $("#dropdownMenuButton1").text('🇰🇿');
+            $("#dropdownMenuButton1").text('🇰🇿'); 
         })
-    });
+    }); // need to call this function in init() for proper work 
     for (let index = 0; index < aStore.length; index++) {
-        aStore[index].price = parseFloat(KZTprice[index]);
+        aStore[index].price = parseFloat(KZTprice[index]); 
     }
-    displayStoreItems(typeCategory);
+    displayStoreItems(typeCategory); // for update currencies in html 
 }
