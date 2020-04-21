@@ -589,7 +589,7 @@ function displayCartItems() {
         tr0.appendChild(subtotal);
 
         for (let index = 0; index < aCart.length; index++) {
-            if (aCart[index].qty == 0) {
+            if (aCart[index].qty <= 0) {
                 aCart.splice(index,1);
                 index--;
             } else {
