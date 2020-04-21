@@ -366,7 +366,7 @@ function displayStoreItemsDetails() {
         var footerBtnAddToCart = document.createElement('button');
         footerBtnAddToCart.setAttribute('type', 'button');
         footerBtnAddToCart.setAttribute("class",'btn btn-primary');
-        //footerBtnAddToCart.setAttribute('onclick', 'addToCart()');
+
         
         //POPOVER
         footerBtnAddToCart.setAttribute("data-toggle", "popover");
@@ -565,7 +565,6 @@ function displayCartItems() {
         var th0 = document.createElement('th');
         th0.setAttribute('scope','col');
         th0.setAttribute('id','th0');
-        // th0.className = "d-none d-sm-block";
         th0.innerText = '';
         var product = document.createElement('th');
         product.setAttribute('scope','col');
