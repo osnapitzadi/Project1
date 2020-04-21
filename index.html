@@ -7,6 +7,7 @@
     <link rel = "icon" type = "image/png" href = "src/logo.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="Awesome Online Store. Integer malesuada nunc vel risus commodo viverra maecenas accumsan lacus. Non consectetur a erat nam at. Arcu vitae elementum curabitur vitae nunc sed velit.">
     <title> Online Store </title>
     <script src="main.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -16,32 +17,39 @@
 <body onload="init()">
   <div class="container"> 
     <header>
-        <div class="row">
-            <div class="col">
-                <h1 id="storeName">Online Store</h1>
-            </div>
-            <!-- Currencies drowdown menu -->
-            <div class="dropdown dropleft">
-              <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                🇨🇦
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" id='cad' href="#" onclick="changeToCAD();">🇨🇦CAD</a>
-                <a class="dropdown-item" id='usd' href="#" onclick="changeToUSD();">🇺🇸USD</a>
-                <a class="dropdown-item" id="kzt" href="#" onclick="changeToKZT();">🇰🇿KZT</a>
-              </div>
-            </div>
-            <!-- Currencies drowdown menu -->
+      <div class="col-sm align-items-start">
+          <h1 id="storeName">Online Store</h1>
+      </div>
+        <div class="d-flex flex-row-reverse" id="modeButtons">
 
-            <!-- Dark mode togle -->
-            <div class = "col-sm-auto">
-              <div class="custom-control custom-switch" onchange="modeChange()">
-                <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                <label class="custom-control-label" for="customSwitch1" id = "modeLabel">Dark mode</label>
-              </div>
+          <!-- View Cart -->
+          <button type="button" id="viewCart" class="btn btn-success col-sm-auto align-self-center" data-toggle="modal" data-target="#cartModal" onclick="displayCartItems()">
+            View Cart
+          </button>  
+          <!-- View Cart -->
+
+          <!-- Currencies drowdown menu -->
+          <div class="dropdown dropleft col-sm-auto align-self-center">
+            <button class="btn btn-outline-dark" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              🇨🇦
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" id='cad' href="#" onclick="changeToCAD();modeChange();">🇨🇦CAD</a>
+              <a class="dropdown-item" id='usd' href="#" onclick="changeToUSD();modeChange();">🇺🇸USD</a>
+              <a class="dropdown-item" id="kzt" href="#" onclick="changeToKZT();modeChange();">🇰🇿KZT</a>
             </div>
-            <!-- Dark mode togle -->
-        </div>
+          </div>
+          <!-- Currencies drowdown menu -->
+
+          <!-- Dark mode togle -->
+          <div class = "col-sm-auto align-self-center">
+            <div class="custom-control custom-switch" onchange="modeChange()">
+              <input type="checkbox" class="custom-control-input" id="customSwitch1">
+              <label class="custom-control-label" for="customSwitch1" id = "modeLabel">Dark mode</label>
+            </div>
+          </div>
+          <!-- Dark mode togle -->
+      </div>
 
         <!-- Nav bar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light" id="mainNavbar">
@@ -54,24 +62,20 @@
               <li class="nav-item active">
                 <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
               </li>
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown active">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Category
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" id="category1" href="#" onclick="displayStoreItems(1);categoryChange(1);">Shoes</a>
-                  <a class="dropdown-item" id="category2" href="#" onclick="displayStoreItems(2);categoryChange(2);">T-Shirt</a>
-                  <a class="dropdown-item" id="category3" href="#" onclick="displayStoreItems(3);categoryChange(3);">Jeans</a>
-                  <a class="dropdown-item" id="category4" href="#" onclick="displayStoreItems(4);categoryChange(4);">Hoodie</a>
-                  <a class="dropdown-item" id="category5" href="#" onclick="displayStoreItems(5);categoryChange(5);">Socks</a>
+                  <a class="dropdown-item" id="category1" href="#" onclick="displayStoreItems(1);categoryChange(1);modeChange();">Shoes</a>
+                  <a class="dropdown-item" id="category2" href="#" onclick="displayStoreItems(2);categoryChange(2);modeChange();">T-Shirt</a>
+                  <a class="dropdown-item" id="category3" href="#" onclick="displayStoreItems(3);categoryChange(3);modeChange();">Jeans</a>
+                  <a class="dropdown-item" id="category4" href="#" onclick="displayStoreItems(4);categoryChange(4);modeChange();">Hoodie</a>
+                  <a class="dropdown-item" id="category5" href="#" onclick="displayStoreItems(5);categoryChange(5);modeChange();">Socks</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#" onclick="displayStoreItems(0)">All Categories</a>
+                  <a class="dropdown-item" href="#" onclick="displayStoreItems(0);modeChange();">All Categories</a>
                 </div>
               </li>
-              <li><a class="fb-ic">
-                <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-              </a>
-            </li>
           </ul>
           <div id="time">Time</div>
         </div>
@@ -86,11 +90,11 @@
           <!-- Store Items -->
 
           <!-- Cart modal-->
-<div class="container">
-  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#cartModal" onclick="displayCartItems()">
-    View Cart
-  </button>  
-</div>
+  <div class="container">
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#cartModal" onclick="displayCartItems()">
+      View Cart
+    </button> 
+  </div>
 
 <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -150,7 +154,7 @@
         
 
         <!-- Contact -->
-          <div class="container my-5 py-5 z-depth-1">
+          <div id="contact" class="container my-5 py-5 z-depth-1">
             <!--Section: Content-->
             <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
 
@@ -174,7 +178,7 @@
 
                 <!--Grid column-->
                 <div class="col-md-6 text-center">
-                  <h3 class="font-weight-bold" id="contactUs">Contact Us</h3>
+                  <h3 class="font-weight-bold" id="contactUs"><a href="mailto:exapmle@gmail.com">Contact Us</a></h3>
                   <p class="text-muted" id="contactText">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id quam sapiente
                     molestiae.</p>
                 </div>
