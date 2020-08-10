@@ -14,4 +14,4 @@ There is nothing to install. It's just simple Vanilla JavaScript shopping cart l
 ## Live Demo 
 
 
-* [click] (https://projectlevel1adil.web.app/) 
+* https://projectlevel1adil.web.app/
