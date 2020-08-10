@@ -3,8 +3,7 @@ Final project INFO-1232-01-20W
 
 ## Getting Started
 
-There is nothing to install. It's just simple Vanilla JavaScript shopping cart logic 
-
+There is nothing to install. It's just simple Vanilla JavaScript shopping cart logic. All course requirements in .pdf file.
 
 ## Built With
 
