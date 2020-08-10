@@ -8,10 +8,10 @@ There is nothing to install. It's just simple Vanilla JavaScript shopping cart l
 
 ## Built With
 
-* [Bootstrap](https://getbootstrap.com/) - Resonsive styling  
+* [Bootstrap](https://getbootstrap.com/) - Responsive styling  
 
 
 ## Live Demo 
 
 
-[click] (https://projectlevel1adil.web.app/) 
+* [click] (https://projectlevel1adil.web.app/) 
