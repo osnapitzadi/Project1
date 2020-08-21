@@ -8,7 +8,7 @@ There is nothing to install. It's just simple Vanilla JavaScript shopping cart l
 ## Built With
 
 * [Bootstrap](https://getbootstrap.com/) - Responsive styling  
-* [jQuery] (https://jquery.com/) - Fixing bootstrap bugs 
+* [jQuery](https://jquery.com/) - Fixing bootstrap bugs 
 
 
 ## Live Demo 
