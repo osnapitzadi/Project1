@@ -16,4 +16,4 @@ There is nothing to install. It's just simple Vanilla JavaScript shopping cart l
 
 * https://projectlevel1adil.web.app/
 
-![Demo Image](https://sun9-13.userapi.com/yZzbWH3HyLh13VazYfCAKbpSolyHrpYMIicSNA/c-vVpx16gZ4.jpg)
+![Demo Image](https://sun9-31.userapi.com/IQT0FqLPH0Q_CRW-OtMxLZIB1UCHT_gPx2d36w/B7YUbJ86qeQ.jpg)
